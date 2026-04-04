@@ -4,26 +4,25 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Knowledge Park Creative School | Home</title>
-  <meta name="description" content="Knowledge Park Creative School – A premier creative school in Bhokar, Maharashtra nurturing young minds."/>
-  <link rel="icon" type="image/png" href="logo.png"/>
+  <meta name="description" content="Knowledge Park Creative School – A premier creative school in Bhokar, Maharashtra nurturing young minds since 2014."/>
+  <!-- ✅ FAVICON FIX: logoicon.png as favicon -->
+  <link rel="icon" type="image/png" href="logoicon.png"/>
+  <link rel="apple-touch-icon" href="logoicon.png"/>
   <link rel="stylesheet" href="style.css"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
   <style>
     /* ===== HERO ===== */
     .hero {
-      min-height: 100vh;
-      padding-top: 68px;
+      min-height: 100vh; padding-top: 68px;
       background: linear-gradient(135deg, #e6f0ff 0%, #fff9ed 55%, #e8f8ea 100%);
-      display: flex; align-items: center;
-      position: relative; overflow: hidden;
+      display: flex; align-items: center; position: relative; overflow: hidden;
     }
-    .hero-orb {
-      position: absolute; border-radius: 50%; pointer-events: none; opacity: .14;
-    }
-    .orb1 { width:480px;height:480px;background:var(--navy);top:-160px;right:-100px;animation:orbFloat 8s ease-in-out infinite; }
-    .orb2 { width:300px;height:300px;background:var(--orange);bottom:-60px;left:-80px;animation:orbFloat 10s ease-in-out infinite reverse; }
-    .orb3 { width:180px;height:180px;background:var(--green);top:40%;right:8%;animation:orbFloat 6s ease-in-out infinite 2s; }
-    @keyframes orbFloat { 0%,100%{transform:translateY(0) scale(1);}50%{transform:translateY(-24px) scale(1.04);} }
+    .hero-orb { position: absolute; border-radius: 50%; pointer-events: none; opacity: .13; }
+    .orb1 { width:500px;height:500px;background:var(--navy);top:-160px;right:-100px;animation:orbFloat 8s ease-in-out infinite; }
+    .orb2 { width:320px;height:320px;background:var(--orange);bottom:-80px;left:-80px;animation:orbFloat 10s ease-in-out infinite reverse; }
+    .orb3 { width:200px;height:200px;background:var(--green);top:38%;right:6%;animation:orbFloat 6s ease-in-out infinite 2s; }
+    .orb4 { width:120px;height:120px;background:var(--purple, #7b1fa2);top:20%;left:5%;animation:orbFloat 7s ease-in-out infinite 1s; }
+    @keyframes orbFloat { 0%,100%{transform:translateY(0) scale(1);}50%{transform:translateY(-24px) scale(1.05);} }
 
     .hero-container {
       max-width: 1160px; margin: 0 auto; padding: 60px 4%;
@@ -32,180 +31,242 @@
     .hero-badge {
       display: inline-flex; align-items: center; gap: 8px;
       background: #fff; border: 2px solid var(--orange);
-      color: var(--orange); font-weight: 800; font-size: .75rem;
-      padding: 6px 16px; border-radius: 50px; margin-bottom: 20px;
-      letter-spacing: 1px; box-shadow: 0 4px 12px rgba(245,166,35,.15);
-      animation: fadeIn .6s ease both;
+      color: var(--orange); font-weight: 800; font-size: .73rem;
+      padding: 6px 16px; border-radius: 50px; margin-bottom: 22px;
+      letter-spacing: 1px; box-shadow: 0 4px 14px rgba(245,166,35,.18);
+      animation: fadeUp .6s ease both;
     }
     .hero-badge i { animation: spin 3s linear infinite; }
     @keyframes spin { to { transform: rotate(360deg); } }
-    @keyframes fadeIn { from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);} }
+    @keyframes fadeUp { from{opacity:0;transform:translateY(22px);}to{opacity:1;transform:translateY(0);} }
 
     .hero-title {
-      font-family: 'Nunito', sans-serif;
-      font-weight: 900; font-size: 3.2rem; line-height: 1.13;
-      color: var(--navy); margin-bottom: 18px;
-      animation: fadeIn .75s ease .1s both;
+      font-family: 'Nunito', sans-serif; font-weight: 900;
+      font-size: 3.2rem; line-height: 1.13; color: var(--navy); margin-bottom: 18px;
+      animation: fadeUp .75s ease .1s both;
     }
-    .hero-title .accent { color: var(--green); }
+    .hero-title .accent  { color: var(--green); }
     .hero-title .accent2 { color: var(--orange); }
     .hero-desc {
-      font-size: 1.04rem; color: var(--text-light);
-      line-height: 1.8; margin-bottom: 32px;
-      animation: fadeIn .75s ease .2s both;
+      font-size: 1.04rem; color: var(--text-light); line-height: 1.85; margin-bottom: 32px;
+      animation: fadeUp .75s ease .2s both;
     }
-    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; animation: fadeIn .75s ease .3s both; }
+    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; animation: fadeUp .75s ease .3s both; }
     .hero-img-wrap {
       display: flex; justify-content: center; align-items: center;
-      animation: fadeIn 1s ease .2s both;
+      animation: fadeUp 1s ease .2s both;
     }
     .hero-img-wrap img {
-      width: 88%; max-width: 380px;
-      filter: drop-shadow(0 24px 48px rgba(26,58,107,.2));
+      width: 88%; max-width: 390px;
+      filter: drop-shadow(0 28px 52px rgba(26,58,107,.22));
       animation: imgFloat 5s ease-in-out infinite;
     }
-    @keyframes imgFloat { 0%,100%{transform:translateY(0);}50%{transform:translateY(-16px);} }
-
+    @keyframes imgFloat { 0%,100%{transform:translateY(0);}50%{transform:translateY(-18px);} }
     .hero-stats {
-      display: flex; gap: 32px; flex-wrap: wrap;
-      margin-top: 40px; padding-top: 28px;
-      border-top: 1px solid rgba(26,58,107,.1);
-      animation: fadeIn .75s ease .4s both;
+      display: flex; gap: 32px; flex-wrap: wrap; margin-top: 40px; padding-top: 28px;
+      border-top: 1px solid rgba(26,58,107,.1); animation: fadeUp .75s ease .4s both;
     }
-    .stat .num {
-      font-family: 'Nunito', sans-serif;
-      font-weight: 900; font-size: 2.1rem; color: var(--navy);
-    }
-    .stat .lbl { font-size: .76rem; color: var(--text-light); font-weight: 700; letter-spacing: .5px; }
+    .stat .num { font-family:'Nunito',sans-serif; font-weight:900; font-size:2.1rem; color:var(--navy); }
+    .stat .lbl { font-size:.76rem; color:var(--text-light); font-weight:700; letter-spacing:.5px; }
 
     /* ===== MARQUEE ===== */
-    .marquee-bar {
-      background: var(--navy); color: #fff;
-      padding: 10px 0; overflow: hidden; position: relative;
-    }
+    .marquee-bar { background: var(--navy); color: #fff; padding: 10px 0; overflow: hidden; }
     .marquee-track {
       display: flex; gap: 48px; width: max-content;
-      animation: marquee 22s linear infinite;
-      font-size: .85rem; font-weight: 700; letter-spacing: .5px;
-      white-space: nowrap;
+      animation: marquee 26s linear infinite; font-size: .85rem; font-weight: 700;
+      letter-spacing: .5px; white-space: nowrap;
     }
     .marquee-track span { display: flex; align-items: center; gap: 10px; }
     .marquee-track i { color: var(--orange); }
     @keyframes marquee { 0%{transform:translateX(0);}100%{transform:translateX(-50%);} }
 
-    /* ===== ABOUT SNIPPET ===== */
+    /* ===== ABOUT SNAP ===== */
     .about-snap { background: #fff; }
-    .about-snap-grid {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;
-    }
+    .about-snap-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
     .about-img-box { position: relative; }
     .about-img-box img {
-      border-radius: var(--radius);
-      background: linear-gradient(135deg,#eef4ff,#fffaef);
-      padding: 32px;
-      box-shadow: var(--shadow);
+      border-radius: var(--radius); background: linear-gradient(135deg,#eef4ff,#fffaef);
+      padding: 32px; box-shadow: var(--shadow);
     }
     .about-float-badge {
       position: absolute; bottom: -16px; right: -16px;
-      background: linear-gradient(135deg, var(--orange), #d4820e);
-      color: #fff; border-radius: var(--radius);
-      padding: 18px 22px; text-align: center;
+      background: linear-gradient(135deg,var(--orange),#d4820e);
+      color: #fff; border-radius: var(--radius); padding: 18px 22px; text-align: center;
       box-shadow: 0 10px 28px rgba(245,166,35,.35);
     }
     .about-float-badge strong { font-family:'Nunito',sans-serif; font-weight:900; font-size:1.5rem; display:block; }
     .about-float-badge span { font-size:.72rem; opacity:.9; font-weight:700; letter-spacing:1px; }
 
+    /* ===== COLORFUL FEAT LIST ===== */
     .feat-list { display: flex; flex-direction: column; gap: 14px; margin: 26px 0 30px; }
     .feat-row {
-      display: flex; gap: 14px; align-items: flex-start;
-      padding: 14px 16px; border-radius: 12px;
-      background: var(--bg); transition: transform .2s;
+      display: flex; gap: 14px; align-items: flex-start; padding: 14px 16px;
+      border-radius: 12px; background: var(--bg); transition: transform .2s;
     }
     .feat-row:hover { transform: translateX(6px); }
-    .feat-ico {
-      width: 42px; height: 42px; border-radius: 10px; flex-shrink: 0;
-      display: flex; align-items: center; justify-content: center; font-size: 1rem;
-    }
-    .ico-g { background: var(--green-light); color: var(--green); }
-    .ico-b { background: var(--blue-light); color: var(--blue); }
-    .ico-o { background: var(--orange-light); color: var(--orange); }
     .feat-row h4 { font-weight: 700; font-size: .92rem; color: var(--navy); }
     .feat-row p { font-size: .82rem; color: var(--text-light); margin-top: 3px; }
 
-    /* ===== FEATURE CARDS ===== */
+    /* ===== WHY CARDS ===== */
     .why-section { background: linear-gradient(135deg,#edf3ff,#fffaef); }
-    .cards-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px,1fr));
-      gap: 22px;
-    }
+    .cards-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(240px,1fr)); gap: 22px; }
     .why-card {
-      background: #fff; border-radius: var(--radius);
-      padding: 30px 24px; text-align: center;
-      box-shadow: var(--shadow-sm);
-      border-top: 4px solid transparent;
+      background: #fff; border-radius: var(--radius); padding: 30px 24px; text-align: center;
+      box-shadow: var(--shadow-sm); border-top: 4px solid transparent;
       transition: transform .3s, box-shadow .3s;
     }
     .why-card:hover { transform: translateY(-8px); box-shadow: var(--shadow); }
-    .why-card.c-navy { border-top-color: var(--navy); }
-    .why-card.c-green { border-top-color: var(--green); }
+    .why-card.c-navy   { border-top-color: var(--navy); }
+    .why-card.c-green  { border-top-color: var(--green); }
     .why-card.c-orange { border-top-color: var(--orange); }
-    .why-card.c-blue { border-top-color: var(--blue); }
+    .why-card.c-blue   { border-top-color: var(--blue); }
+    .why-card.c-red    { border-top-color: var(--red); }
+    .why-card.c-purple { border-top-color: #7b1fa2; }
+    .why-card.c-teal   { border-top-color: var(--teal); }
+    .why-card.c-pink   { border-top-color: var(--pink); }
     .why-ico {
-      width: 60px; height: 60px; border-radius: 50%;
+      width: 64px; height: 64px; border-radius: 50%; margin: 0 auto 18px;
+      display: flex; align-items: center; justify-content: center; font-size: 1.4rem;
+    }
+    .c-navy .why-ico   { background: #e8eef8; color: var(--navy); }
+    .c-green .why-ico  { background: var(--green-light); color: var(--green); }
+    .c-orange .why-ico { background: var(--orange-light); color: var(--orange); }
+    .c-blue .why-ico   { background: var(--blue-light); color: var(--blue); }
+    .c-red .why-ico    { background: #fdecea; color: var(--red); }
+    .c-purple .why-ico { background: #f3e5f5; color: #7b1fa2; }
+    .c-teal .why-ico   { background: #e0f2f1; color: var(--teal); }
+    .c-pink .why-ico   { background: #fce4ec; color: var(--pink); }
+    .why-card h3 { font-family:'Nunito',sans-serif; font-weight:800; color:var(--navy); font-size:1rem; margin-bottom:8px; }
+    .why-card p { font-size:.84rem; color:var(--text-light); line-height:1.65; }
+
+    /* ===== PROGRAMS ===== */
+    .programs-section { background: #fff; }
+    .prog-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); gap: 22px; }
+    .prog-card {
+      border-radius: var(--radius); padding: 32px 24px; text-align: center;
+      transition: transform .3s, box-shadow .3s; position: relative; overflow: hidden;
+    }
+    .prog-card::before { content:''; position:absolute; inset:0; opacity:.07; border-radius:var(--radius); }
+    .prog-card:hover { transform: translateY(-6px); box-shadow: var(--shadow); }
+    .pc-pp { background: linear-gradient(135deg,#e3f2fd,#bbdefb); }
+    .pc-p  { background: linear-gradient(135deg,#e8f8ed,#c8e6c9); }
+    .pc-s  { background: linear-gradient(135deg,#fff8e1,#ffe082); }
+    .pc-c  { background: linear-gradient(135deg,#fce4ec,#f48fb1); }
+    .prog-icon {
+      width: 70px; height: 70px; border-radius: 50%; margin: 0 auto 16px;
+      display: flex; align-items: center; justify-content: center; font-size: 1.6rem;
+    }
+    .pc-pp .prog-icon { background: var(--blue); color:#fff; }
+    .pc-p  .prog-icon { background: var(--green); color:#fff; }
+    .pc-s  .prog-icon { background: var(--orange); color:#fff; }
+    .pc-c  .prog-icon { background: var(--pink); color:#fff; }
+    .prog-card h3 { font-family:'Nunito',sans-serif; font-weight:900; color:var(--navy); font-size:1.05rem; margin-bottom:8px; }
+    .prog-card p { font-size:.84rem; color:var(--text-light); line-height:1.65; }
+    .prog-badge {
+      display: inline-block; margin-top: 14px; padding: 4px 14px; border-radius: 20px;
+      font-size: .73rem; font-weight: 800; letter-spacing: .5px;
+    }
+    .pc-pp .prog-badge { background: var(--blue-light); color: var(--blue); }
+    .pc-p  .prog-badge { background: var(--green-light); color: var(--green); }
+    .pc-s  .prog-badge { background: var(--orange-light); color: var(--orange); }
+    .pc-c  .prog-badge { background: #fce4ec; color: var(--pink); }
+
+    /* ===== POPUP / MODAL ===== */
+    .adm-overlay {
+      position: fixed; inset: 0; z-index: 9999;
+      background: rgba(10,20,50,.72); backdrop-filter: blur(4px);
       display: flex; align-items: center; justify-content: center;
-      margin: 0 auto 16px; font-size: 1.4rem;
+      padding: 16px; animation: fadeIn .4s ease;
     }
-    .why-card.c-navy .why-ico { background: #e8eef8; color: var(--navy); }
-    .why-card.c-green .why-ico { background: var(--green-light); color: var(--green); }
-    .why-card.c-orange .why-ico { background: var(--orange-light); color: var(--orange); }
-    .why-card.c-blue .why-ico { background: var(--blue-light); color: var(--blue); }
-    .why-card h3 { font-family:'Nunito',sans-serif; font-weight:800; font-size:1rem; color:var(--navy); margin-bottom:8px; }
-    .why-card p { font-size:.84rem; color:var(--text-light); line-height:1.7; }
+    @keyframes fadeIn { from{opacity:0;}to{opacity:1;} }
+    .adm-modal {
+      background: #fff; border-radius: 22px; overflow: hidden;
+      max-width: 500px; width: 100%; box-shadow: 0 32px 80px rgba(0,0,0,.35);
+      animation: slideUp .45s cubic-bezier(.34,1.56,.64,1);
+    }
+    @keyframes slideUp { from{opacity:0;transform:translateY(60px) scale(.95);}to{opacity:1;transform:translateY(0) scale(1);} }
+    .adm-modal-header {
+      background: linear-gradient(135deg, var(--navy-dark), var(--navy));
+      padding: 28px 28px 22px; text-align: center; position: relative;
+    }
+    .adm-modal-header img { height: 60px; width: 60px; border-radius: 50%; margin: 0 auto 12px; background:#fff; padding:2px; }
+    .adm-modal-header h2 { font-family:'Nunito',sans-serif; font-weight:900; font-size:1.35rem; color:#fff; }
+    .adm-modal-header p { font-size:.83rem; color:rgba(255,255,255,.78); margin-top:6px; }
+    .adm-close {
+      position: absolute; top: 12px; right: 16px; background: rgba(255,255,255,.18);
+      border: none; color: #fff; width: 32px; height: 32px; border-radius: 50%;
+      cursor: pointer; font-size: 1rem; display: flex; align-items: center; justify-content: center;
+      transition: background .2s;
+    }
+    .adm-close:hover { background: rgba(255,255,255,.35); }
+    .adm-modal-body { padding: 28px; }
+    .adm-highlight {
+      background: linear-gradient(135deg, var(--orange-light), #fff9ed);
+      border-radius: 12px; padding: 16px 18px; margin-bottom: 20px;
+      border-left: 4px solid var(--orange); font-size: .9rem; color: var(--text);
+      line-height: 1.7;
+    }
+    .adm-highlight strong { color: var(--orange); }
+    .adm-points { display: flex; flex-direction: column; gap: 10px; margin-bottom: 24px; }
+    .adm-pt { display: flex; align-items: center; gap: 10px; font-size: .88rem; color: var(--text); }
+    .adm-pt i { color: var(--green); font-size: .9rem; flex-shrink: 0; }
+    .adm-modal-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+    .adm-modal-actions .btn { flex: 1; justify-content: center; min-width: 140px; }
+    .adm-skip { text-align: center; margin-top: 14px; }
+    .adm-skip a { font-size: .8rem; color: var(--text-light); text-decoration: underline; cursor: pointer; }
+    .adm-skip a:hover { color: var(--navy); }
 
-    /* ===== CTA BANNER ===== */
-    .cta-section {
-      background: linear-gradient(135deg, var(--navy-dark), var(--navy) 60%, #1a5fbf);
-      padding: 72px 4%; text-align: center; color: #fff; position: relative; overflow: hidden;
+    @media(max-width:768px){
+      .hero-container { grid-template-columns: 1fr; padding: 56px 5%; text-align: center; }
+      .hero-img-wrap { order: -1; }
+      .hero-img-wrap img { max-width: 260px; }
+      .hero-title { font-size: 2.2rem; }
+      .hero-actions { justify-content: center; }
+      .hero-stats { justify-content: center; }
+      .about-snap-grid { grid-template-columns: 1fr; }
     }
-    .cta-section::before {
-      content: '';
-      position: absolute; top: -60px; left: -60px;
-      width: 240px; height: 240px; border-radius: 50%;
-      background: rgba(255,255,255,.05);
+    @media(max-width:480px){
+      .hero-title { font-size: 1.9rem; }
     }
-    .cta-section::after {
-      content: '';
-      position: absolute; bottom: -80px; right: -40px;
-      width: 300px; height: 300px; border-radius: 50%;
-      background: rgba(255,255,255,.04);
-    }
-    .cta-section h2 { font-family:'Nunito',sans-serif; font-weight:900; font-size:2.2rem; margin-bottom:14px; }
-    .cta-section p { color:rgba(255,255,255,.75); font-size:1rem; margin-bottom:30px; max-width:520px; margin-left:auto; margin-right:auto; }
-    .cta-btns { display:flex; gap:14px; justify-content:center; flex-wrap:wrap; }
-
-    @media(max-width:900px){
-      .hero-container { grid-template-columns:1fr; text-align:center; }
-      .hero-actions { justify-content:center; }
-      .hero-stats { justify-content:center; }
-      .hero-img-wrap { order:-1; }
-      .about-snap-grid { grid-template-columns:1fr; }
-      .about-float-badge { right:0; bottom:-14px; }
-      .hero-title { font-size:2.2rem; }
-    }
-    @media(max-width:640px){ .hero-title{font-size:1.9rem;} }
   </style>
 </head>
 <body>
 
-<!-- NAVBAR -->
-<nav class="navbar" id="navbar">
-  <a href="index.html" class="nav-brand">
-    <img src="logo.png" alt="Knowledge Park Logo">
-    <div class="nav-brand-text">
-      <strong>Knowledge Park</strong>
-      <small>CREATIVE SCHOOL</small>
+<!-- ===== ADMISSION POPUP MODAL ===== -->
+<div class="adm-overlay" id="admPopup">
+  <div class="adm-modal">
+    <div class="adm-modal-header">
+      <button class="adm-close" onclick="closeAdmPopup()" aria-label="Close">&times;</button>
+      <img src="logo.png" alt="Knowledge Park Logo"/>
+      <h2>🎉 Admissions Open 2026–27!</h2>
+      <p>Knowledge Park Creative School, Bhokar</p>
     </div>
+    <div class="adm-modal-body">
+      <div class="adm-highlight">
+        <strong>Limited Seats Available!</strong> Enrol your child now for Nursery to Class 10.
+        Academic year starts <strong>June 2026</strong>.
+      </div>
+      <div class="adm-points">
+        <div class="adm-pt"><i class="fas fa-check-circle"></i> Nursery, LKG &amp; UKG – Pre-Primary</div>
+        <div class="adm-pt"><i class="fas fa-check-circle"></i> Class 1 to 5 – Primary Section</div>
+        <div class="adm-pt"><i class="fas fa-check-circle"></i> Class 6 to 10 – Secondary Section</div>
+        <div class="adm-pt"><i class="fas fa-check-circle"></i> School Bus &amp; Transport Available</div>
+        <div class="adm-pt"><i class="fas fa-check-circle"></i> 100% Board Results Every Year</div>
+      </div>
+      <div class="adm-modal-actions">
+        <a href="admission.html" class="btn btn-orange"><i class="fas fa-file-alt"></i> Apply Now</a>
+        <a href="tel:09284504673" class="btn btn-navy"><i class="fas fa-phone-alt"></i> Call Us</a>
+      </div>
+      <div class="adm-skip"><a onclick="closeAdmPopup()">No thanks, I'll explore first</a></div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== NAVBAR ===== -->
+<nav class="navbar">
+  <a href="index.html" class="nav-brand">
+    <img src="logo.png" alt="Knowledge Park Logo"/>
+    <div class="nav-brand-text"><strong>Knowledge Park</strong><small>CREATIVE SCHOOL</small></div>
   </a>
   <ul class="nav-links">
     <li><a href="index.html" class="active"><i class="fas fa-home"></i> Home</a></li>
@@ -214,7 +275,7 @@
     <li><a href="contact.html"><i class="fas fa-phone-alt"></i> Contact</a></li>
     <li class="nav-admit"><a href="admission.html"><i class="fas fa-file-alt"></i> Admission</a></li>
   </ul>
-  <div class="hamburger" id="ham" onclick="toggleMob()"><span></span><span></span><span></span></div>
+  <div class="hamburger" onclick="toggleMob()"><span></span><span></span><span></span></div>
 </nav>
 <div class="mobile-nav" id="mobileNav">
   <a href="index.html" class="active"><i class="fas fa-home"></i> Home</a>
@@ -225,25 +286,30 @@
 </div>
 
 <main>
-  <!-- HERO -->
+  <!-- ===== HERO ===== -->
   <section class="hero">
     <div class="hero-orb orb1"></div>
     <div class="hero-orb orb2"></div>
     <div class="hero-orb orb3"></div>
+    <div class="hero-orb orb4"></div>
     <div class="hero-container">
-      <div class="hero-text">
-        <div class="hero-badge"><i class="fas fa-star"></i> Admissions Open 2026–27</div>
-        <h1 class="hero-title">Where Young Minds <span class="accent">Grow</span> &amp; <span class="accent2">Shine</span></h1>
-        <p class="hero-desc">At Knowledge Park Creative School, we nurture curiosity, creativity, and character — empowering every child to reach their full potential in a joyful, safe and inspiring environment.</p>
+      <div>
+        <div class="hero-badge"><i class="fas fa-star"></i> ADMISSIONS OPEN 2026–27</div>
+        <h1 class="hero-title">
+          Where Young Minds<br>
+          <span class="accent">Grow</span>, <span class="accent2">Create</span><br>
+          &amp; Succeed
+        </h1>
+        <p class="hero-desc">Knowledge Park Creative School, Bhokar — blending strong academics with arts, sports and values to shape confident, compassionate and creative individuals ready for tomorrow.</p>
         <div class="hero-actions">
           <a href="admission.html" class="btn btn-orange"><i class="fas fa-file-alt"></i> Apply for Admission</a>
-          <a href="about.html" class="btn btn-outline">Learn More</a>
+          <a href="about.html" class="btn btn-navy"><i class="fas fa-school"></i> About Our School</a>
         </div>
         <div class="hero-stats">
-          <div class="stat"><div class="num">500+</div><div class="lbl">Students</div></div>
-          <div class="stat"><div class="num">25+</div><div class="lbl">Teachers</div></div>
-          <div class="stat"><div class="num">10+</div><div class="lbl">Years</div></div>
-          <div class="stat"><div class="num">100%</div><div class="lbl">Results</div></div>
+          <div class="stat"><div class="num">500+</div><div class="lbl">STUDENTS</div></div>
+          <div class="stat"><div class="num">12+</div><div class="lbl">YEARS</div></div>
+          <div class="stat"><div class="num">100%</div><div class="lbl">BOARD RESULTS</div></div>
+          <div class="stat"><div class="num">50+</div><div class="lbl">AWARDS WON</div></div>
         </div>
       </div>
       <div class="hero-img-wrap">
@@ -252,34 +318,37 @@
     </div>
   </section>
 
-  <!-- MARQUEE -->
+  <!-- ===== MARQUEE ===== -->
   <div class="marquee-bar">
-    <div class="marquee-track" id="marquee">
+    <div class="marquee-track">
       <span><i class="fas fa-star"></i> Admissions Open 2026–27</span>
-      <span><i class="fas fa-trophy"></i> 100% Board Results</span>
-      <span><i class="fas fa-palette"></i> Creative Arts Program</span>
+      <span><i class="fas fa-graduation-cap"></i> 100% Board Results</span>
       <span><i class="fas fa-futbol"></i> Annual Sports Day – April 2026</span>
       <span><i class="fas fa-bus"></i> Transport Facility Available</span>
-      <span><i class="fas fa-shield-alt"></i> Safe & Secure Campus</span>
+      <span><i class="fas fa-shield-alt"></i> Safe &amp; Secure Campus</span>
       <span><i class="fas fa-music"></i> Cultural Events Every Month</span>
+      <span><i class="fas fa-laptop"></i> Smart Classrooms &amp; Digital Learning</span>
+      <span><i class="fas fa-users"></i> Experienced &amp; Dedicated Faculty</span>
+      <!-- duplicate for seamless loop -->
       <span><i class="fas fa-star"></i> Admissions Open 2026–27</span>
-      <span><i class="fas fa-trophy"></i> 100% Board Results</span>
-      <span><i class="fas fa-palette"></i> Creative Arts Program</span>
+      <span><i class="fas fa-graduation-cap"></i> 100% Board Results</span>
       <span><i class="fas fa-futbol"></i> Annual Sports Day – April 2026</span>
       <span><i class="fas fa-bus"></i> Transport Facility Available</span>
-      <span><i class="fas fa-shield-alt"></i> Safe & Secure Campus</span>
+      <span><i class="fas fa-shield-alt"></i> Safe &amp; Secure Campus</span>
       <span><i class="fas fa-music"></i> Cultural Events Every Month</span>
+      <span><i class="fas fa-laptop"></i> Smart Classrooms &amp; Digital Learning</span>
+      <span><i class="fas fa-users"></i> Experienced &amp; Dedicated Faculty</span>
     </div>
   </div>
 
-  <!-- ABOUT SNAP -->
+  <!-- ===== ABOUT SNAP ===== -->
   <section class="section about-snap">
     <div class="container">
       <div class="about-snap-grid">
         <div class="about-img-box reveal-left">
-          <img src="logo.png" alt="About Us"/>
+          <img src="logo.png" alt="About Knowledge Park Creative School"/>
           <div class="about-float-badge">
-            <strong>10+</strong>
+            <strong>12+</strong>
             <span>YEARS OF EXCELLENCE</span>
           </div>
         </div>
@@ -287,7 +356,7 @@
           <div class="section-label">About Our School</div>
           <h2 class="section-title">Building Bright Futures in Bhokar</h2>
           <div class="divider"></div>
-          <p style="color:var(--text-light);line-height:1.8;">Knowledge Park Creative School is a premier institution in Bhokar, Maharashtra. We blend academics with arts, sports and values to develop well-rounded individuals ready for tomorrow's world.</p>
+          <p style="color:var(--text-light);line-height:1.85;">Knowledge Park Creative School is a premier institution in Bhokar, Maharashtra. We blend academics with arts, sports and values to develop well-rounded individuals ready for tomorrow's world.</p>
           <div class="feat-list">
             <div class="feat-row">
               <div class="feat-ico ico-g"><i class="fas fa-chalkboard-teacher"></i></div>
@@ -295,11 +364,15 @@
             </div>
             <div class="feat-row">
               <div class="feat-ico ico-b"><i class="fas fa-laptop"></i></div>
-              <div><h4>Modern Infrastructure</h4><p>Smart classrooms, computer lab, library & science lab.</p></div>
+              <div><h4>Modern Infrastructure</h4><p>Smart classrooms, computer lab, library &amp; science lab.</p></div>
             </div>
             <div class="feat-row">
               <div class="feat-ico ico-o"><i class="fas fa-heart"></i></div>
-              <div><h4>Safe & Nurturing</h4><p>CCTV surveillance, trained staff & open parent communication.</p></div>
+              <div><h4>Safe &amp; Nurturing</h4><p>CCTV surveillance, trained staff &amp; open parent communication.</p></div>
+            </div>
+            <div class="feat-row">
+              <div class="feat-ico ico-r"><i class="fas fa-palette"></i></div>
+              <div><h4>Creative Arts Program</h4><p>Drawing, craft, music and dance to unlock creative potential.</p></div>
             </div>
           </div>
           <a href="about.html" class="btn btn-navy">Read Full Story <i class="fas fa-arrow-right"></i></a>
@@ -308,7 +381,45 @@
     </div>
   </section>
 
-  <!-- WHY US -->
+  <!-- ===== PROGRAMS ===== -->
+  <section class="section programs-section">
+    <div class="container">
+      <div class="text-center" style="margin-bottom:48px;">
+        <div class="section-label reveal">Academic Programs</div>
+        <h2 class="section-title reveal">Programs We Offer</h2>
+        <div class="divider center reveal"></div>
+        <p class="section-sub reveal">Comprehensive programs for every stage of your child's development.</p>
+      </div>
+      <div class="prog-grid">
+        <div class="prog-card pc-pp reveal">
+          <div class="prog-icon"><i class="fas fa-child"></i></div>
+          <h3>Pre-Primary</h3>
+          <p>Nursery, LKG & UKG — Play-based learning for foundational skills.</p>
+          <div class="prog-badge">Ages 3–6</div>
+        </div>
+        <div class="prog-card pc-p reveal">
+          <div class="prog-icon"><i class="fas fa-book-reader"></i></div>
+          <h3>Primary</h3>
+          <p>Class 1 to 5 — Building core academics with creativity &amp; curiosity.</p>
+          <div class="prog-badge">Class 1–5</div>
+        </div>
+        <div class="prog-card pc-s reveal">
+          <div class="prog-icon"><i class="fas fa-graduation-cap"></i></div>
+          <h3>Secondary</h3>
+          <p>Class 6 to 10 — State board curriculum with 100% exam results.</p>
+          <div class="prog-badge">Class 6–10</div>
+        </div>
+        <div class="prog-card pc-c reveal">
+          <div class="prog-icon"><i class="fas fa-paint-brush"></i></div>
+          <h3>Co-curricular</h3>
+          <p>Art, dance, music, sports &amp; yoga programs for holistic development.</p>
+          <div class="prog-badge">All Classes</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== WHY US ===== -->
   <section class="section why-section">
     <div class="container">
       <div class="text-center" style="margin-bottom:48px;">
@@ -318,19 +429,51 @@
         <p class="section-sub reveal">A complete ecosystem that goes beyond textbooks to build creativity, confidence and character.</p>
       </div>
       <div class="cards-grid">
-        <div class="why-card c-navy reveal"><div class="why-ico"><i class="fas fa-book-open"></i></div><h3>Academic Excellence</h3><p>Structured curriculum, regular assessments and 100% board results every year.</p></div>
-        <div class="why-card c-green reveal"><div class="why-ico"><i class="fas fa-palette"></i></div><h3>Creative Arts</h3><p>Drawing, craft, music and dance programs that unlock every child's creative potential.</p></div>
-        <div class="why-card c-orange reveal"><div class="why-ico"><i class="fas fa-futbol"></i></div><h3>Sports & Fitness</h3><p>Regular sports, yoga and physical education sessions that build healthy habits.</p></div>
-        <div class="why-card c-blue reveal"><div class="why-ico"><i class="fas fa-shield-alt"></i></div><h3>Safety First</h3><p>24/7 CCTV, trained security staff and strict visitor protocols for a safe campus.</p></div>
-        <div class="why-card c-green reveal"><div class="why-ico"><i class="fas fa-bus"></i></div><h3>Transport Facility</h3><p>Safe and reliable school bus service covering Bhokar and surrounding areas.</p></div>
-        <div class="why-card c-orange reveal"><div class="why-ico"><i class="fas fa-users"></i></div><h3>Parent Connect</h3><p>Regular PTMs, parent workshops and open communication channels with teachers.</p></div>
-        <div class="why-card c-navy reveal"><div class="why-ico"><i class="fas fa-laptop"></i></div><h3>Digital Learning</h3><p>Smart boards, computer education and digital resources from early grades.</p></div>
-        <div class="why-card c-blue reveal"><div class="why-ico"><i class="fas fa-award"></i></div><h3>Awards & Recognition</h3><p>Consistently recognized for academic and extra-curricular excellence at district level.</p></div>
+        <div class="why-card c-navy reveal">
+          <div class="why-ico"><i class="fas fa-book-open"></i></div>
+          <h3>Academic Excellence</h3>
+          <p>Structured curriculum, regular assessments and 100% board results every year.</p>
+        </div>
+        <div class="why-card c-green reveal">
+          <div class="why-ico"><i class="fas fa-palette"></i></div>
+          <h3>Creative Arts</h3>
+          <p>Drawing, craft, music and dance programs that unlock every child's creative potential.</p>
+        </div>
+        <div class="why-card c-orange reveal">
+          <div class="why-ico"><i class="fas fa-futbol"></i></div>
+          <h3>Sports &amp; Fitness</h3>
+          <p>Regular sports, yoga and physical education sessions that build healthy habits.</p>
+        </div>
+        <div class="why-card c-blue reveal">
+          <div class="why-ico"><i class="fas fa-shield-alt"></i></div>
+          <h3>Safety First</h3>
+          <p>24/7 CCTV, trained security staff and strict visitor protocols for a safe campus.</p>
+        </div>
+        <div class="why-card c-red reveal">
+          <div class="why-ico"><i class="fas fa-bus"></i></div>
+          <h3>Transport Facility</h3>
+          <p>Safe and reliable school bus service covering Bhokar and surrounding areas.</p>
+        </div>
+        <div class="why-card c-purple reveal">
+          <div class="why-ico"><i class="fas fa-users"></i></div>
+          <h3>Parent Connect</h3>
+          <p>Regular PTMs, parent workshops and open communication channels with teachers.</p>
+        </div>
+        <div class="why-card c-teal reveal">
+          <div class="why-ico"><i class="fas fa-laptop"></i></div>
+          <h3>Digital Learning</h3>
+          <p>Smart boards, computer education and digital resources from early grades.</p>
+        </div>
+        <div class="why-card c-pink reveal">
+          <div class="why-ico"><i class="fas fa-award"></i></div>
+          <h3>Awards &amp; Recognition</h3>
+          <p>Consistently recognized for academic and extra-curricular excellence at district level.</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- CTA -->
+  <!-- ===== CTA ===== -->
   <section class="cta-section">
     <h2 class="reveal">Enrol Your Child Today!</h2>
     <p class="reveal">Give your child the best start in life. Admissions for 2026–27 are now open for Nursery to Class 10.</p>
@@ -345,16 +488,17 @@
 <div class="float-btns">
   <a href="https://wa.me/919284504673?text=Hello!%20I%20am%20interested%20in%20Knowledge%20Park%20Creative%20School." target="_blank" class="float-btn wa" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
   <a href="tel:09284504673" class="float-btn call" title="Call Us"><i class="fas fa-phone-alt"></i></a>
-  <a href="#" class="float-btn totop" title="Top"><i class="fas fa-chevron-up"></i></a>
+  <a href="#" class="float-btn totop" title="Back to Top"><i class="fas fa-chevron-up"></i></a>
 </div>
 
-<!-- FOOTER -->
+<!-- ===== FOOTER ===== -->
 <footer>
   <div class="footer-inner">
     <div class="footer-grid">
       <div class="footer-col">
+        <!-- ✅ FOOTER LOGO FIX: using logo.png from same folder -->
         <div class="footer-brand-row">
-          <img src="logo.png" alt="Logo"/>
+          <img src="logo.png" alt="Knowledge Park Logo"/>
           <div class="ft">Knowledge Park<small>CREATIVE SCHOOL</small></div>
         </div>
         <p>Nurturing young minds with creativity, knowledge and compassion. Join us and give your child the very best start in life.</p>
@@ -396,24 +540,65 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <div class="visitor-row"><i class="fas fa-eye" style="color:var(--orange)"></i> Total Visitors: <span id="visitorCount">0</span></div>
-      <p class="footer-copy">&copy; 2026 <a href="https://kssoftware.co.in" target="_blank" rel="noopener">KS_SOFTWARE</a>. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+      <div class="visitor-row">
+        <i class="fas fa-eye" style="color:var(--orange)"></i>
+        Total Visitors: <strong><span id="visitorCount">Loading…</span></strong>
+      </div>
+      <!-- ✅ 2026 copyright -->
+      <p class="footer-copy">&copy; 2026 <a href="https://kssoftware.co.in" target="_blank" rel="noopener">KS Software</a>. All rights reserved. | <a href="#">Privacy Policy</a></p>
     </div>
   </div>
 </footer>
 
 <script>
-  function toggleMob(){ document.getElementById('mobileNav').classList.toggle('open'); }
-  // Visitor counter
-  (function(){
-    const k='kpcs_vc'; let c=parseInt(localStorage.getItem(k)||'0');
-    if(!sessionStorage.getItem('kpcs_vs')){ c++; localStorage.setItem(k,c); sessionStorage.setItem('kpcs_vs','1'); }
-    document.getElementById('visitorCount').textContent=c.toLocaleString();
-  })();
-  // Scroll reveal
-  const revEls=document.querySelectorAll('.reveal,.reveal-left,.reveal-right');
-  const obs=new IntersectionObserver(entries=>{ entries.forEach(e=>{ if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);} }); },{threshold:.1});
-  revEls.forEach(el=>obs.observe(el));
+/* ===== ADMISSION POPUP ===== */
+function closeAdmPopup(){
+  document.getElementById('admPopup').style.display='none';
+  sessionStorage.setItem('kpcs_adm_shown','1');
+}
+window.addEventListener('load', function(){
+  if(!sessionStorage.getItem('kpcs_adm_shown')){
+    setTimeout(function(){ document.getElementById('admPopup').style.display='flex'; }, 1200);
+  } else {
+    document.getElementById('admPopup').style.display='none';
+  }
+});
+document.getElementById('admPopup').addEventListener('click', function(e){
+  if(e.target === this) closeAdmPopup();
+});
+
+/* ===== MOBILE NAV ===== */
+function toggleMob(){ document.getElementById('mobileNav').classList.toggle('open'); }
+
+/* ===== VISITOR COUNTER (localStorage — real cumulative) =====
+   Every unique browser session adds 1. Works locally.
+   For a real shared counter across users, use a backend API.
+*/
+(function(){
+  var KEY = 'kpcs_visitor_total';
+  var SESSION_KEY = 'kpcs_session_counted';
+  var total = parseInt(localStorage.getItem(KEY) || '0', 10);
+  if(!sessionStorage.getItem(SESSION_KEY)){
+    total++;
+    localStorage.setItem(KEY, total);
+    sessionStorage.setItem(SESSION_KEY, '1');
+  }
+  document.getElementById('visitorCount').textContent = total.toLocaleString('en-IN');
+})();
+
+/* ===== SCROLL REVEAL ===== */
+(function(){
+  var els = document.querySelectorAll('.reveal,.reveal-left,.reveal-right');
+  var obs = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('visible'); obs.unobserve(e.target); } });
+  },{threshold:.1});
+  els.forEach(function(el){ obs.observe(el); });
+})();
+
+/* ===== BACK TO TOP ===== */
+document.querySelector('.totop').addEventListener('click', function(e){
+  e.preventDefault(); window.scrollTo({top:0,behavior:'smooth'});
+});
 </script>
 </body>
 </html>

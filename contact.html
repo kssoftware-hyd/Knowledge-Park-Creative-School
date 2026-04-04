@@ -4,106 +4,173 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Contact Us | Knowledge Park Creative School</title>
-  <link rel="icon" type="image/png" href="logo.png"/>
+  <meta name="description" content="Contact Knowledge Park Creative School, Bhokar – Call, WhatsApp or visit us for admission enquiries."/>
+  <!-- ✅ FAVICON -->
+  <link rel="icon" type="image/png" href="logoicon.png"/>
+  <link rel="apple-touch-icon" href="logoicon.png"/>
   <link rel="stylesheet" href="style.css"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
   <style>
-    /* ===== INFO CARDS ===== */
+    /* ===== CONTACT INFO CARDS ===== */
     .contact-section { background: #fff; }
-    .contact-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 48px; align-items: start; }
-
-    .info-stack { display: flex; flex-direction: column; gap: 18px; }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      gap: 48px;
+      align-items: start;
+    }
+    .info-stack { display: flex; flex-direction: column; gap: 16px; }
     .info-card {
-      background: var(--bg); border-radius: var(--radius);
-      padding: 22px 20px; display: flex; gap: 16px; align-items: flex-start;
+      background: var(--bg);
+      border-radius: var(--radius);
+      padding: 20px 18px;
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
       transition: transform .2s, box-shadow .2s;
       border-left: 4px solid transparent;
     }
     .info-card:hover { transform: translateX(6px); box-shadow: var(--shadow-sm); }
-    .info-card.ic-navy { border-left-color: var(--navy); }
-    .info-card.ic-green { border-left-color: var(--green); }
+    .info-card.ic-navy   { border-left-color: var(--navy); }
+    .info-card.ic-green  { border-left-color: var(--green); }
     .info-card.ic-orange { border-left-color: var(--orange); }
-    .info-card.ic-blue { border-left-color: var(--blue); }
+    .info-card.ic-blue   { border-left-color: var(--blue); }
+    .info-card.ic-purple { border-left-color: #7b1fa2; }
     .info-ico {
       width: 46px; height: 46px; border-radius: 12px; flex-shrink: 0;
       display: flex; align-items: center; justify-content: center; font-size: 1.1rem;
     }
-    .ic-navy .info-ico { background: #e8eef8; color: var(--navy); }
-    .ic-green .info-ico { background: var(--green-light); color: var(--green); }
+    .ic-navy   .info-ico { background: #e8eef8; color: var(--navy); }
+    .ic-green  .info-ico { background: var(--green-light); color: var(--green); }
     .ic-orange .info-ico { background: var(--orange-light); color: var(--orange); }
-    .ic-blue .info-ico { background: var(--blue-light); color: var(--blue); }
+    .ic-blue   .info-ico { background: var(--blue-light); color: var(--blue); }
+    .ic-purple .info-ico { background: #f3e5f5; color: #7b1fa2; }
     .info-card h4 { font-weight: 700; font-size: .9rem; color: var(--navy); margin-bottom: 5px; }
-    .info-card p, .info-card a { font-size: .87rem; color: var(--text-light); line-height: 1.65; text-decoration: none; display: block; }
+    .info-card p  { font-size: .86rem; color: var(--text-light); line-height: 1.65; }
+    .info-card a  { font-size: .86rem; color: var(--text-light); line-height: 1.65; text-decoration: none; display: block; transition: color .2s; }
     .info-card a:hover { color: var(--navy); }
 
-    /* ===== CONTACT FORM ===== */
+    /* ===== HOURS TABLE ===== */
+    .hours-table { width: 100%; border-collapse: collapse; margin-top: 8px; }
+    .hours-table tr { border-bottom: 1px solid var(--border); }
+    .hours-table tr:last-child { border-bottom: none; }
+    .hours-table td { padding: 8px 0; font-size: .84rem; }
+    .hours-table td:first-child { font-weight: 700; color: var(--navy); }
+    .hours-table td:last-child { color: var(--text-light); text-align: right; }
+
+    /* ===== WHATSAPP BANNER ===== */
+    .wa-banner {
+      background: linear-gradient(135deg, #128c7e, #25d366);
+      border-radius: var(--radius); padding: 24px 26px;
+      display: flex; align-items: center; gap: 18px;
+      box-shadow: 0 10px 28px rgba(37,211,102,.25);
+      text-decoration: none; color: #fff; transition: transform .2s;
+    }
+    .wa-banner:hover { transform: translateY(-3px); }
+    .wa-icon { font-size: 2.5rem; flex-shrink: 0; }
+    .wa-banner h4 { font-family: 'Nunito', sans-serif; font-weight: 900; font-size: 1.05rem; margin-bottom: 4px; }
+    .wa-banner p  { font-size: .84rem; opacity: .9; line-height: 1.5; }
+
+    /* ===== QUICK CHIPS ===== */
+    .quick-chips { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 40px; }
+    .chip {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 10px 20px; border-radius: 50px; font-weight: 700;
+      font-size: .85rem; text-decoration: none; transition: transform .2s, box-shadow .2s;
+    }
+    .chip:hover { transform: translateY(-2px); }
+    .chip-call { background: var(--navy); color: #fff; box-shadow: 0 4px 14px rgba(26,58,107,.28); }
+    .chip-wa   { background: #25d366; color: #fff; box-shadow: 0 4px 14px rgba(37,211,102,.3); }
+    .chip-map  { background: #ea4335; color: #fff; box-shadow: 0 4px 14px rgba(234,67,53,.28); }
+
+    /* ===== CONTACT FORM BOX ===== */
     .cf-box {
       background: var(--bg); border-radius: var(--radius);
-      padding: 38px; box-shadow: var(--shadow-sm);
+      padding: 36px; box-shadow: var(--shadow-sm);
       border-top: 5px solid var(--navy);
     }
     .cf-box h3 {
-      font-family:'Nunito',sans-serif; font-weight:900; font-size:1.3rem;
-      color:var(--navy); margin-bottom:6px;
-      display:flex; align-items:center; gap:10px;
+      font-family: 'Nunito', sans-serif; font-weight: 900; font-size: 1.3rem;
+      color: var(--navy); margin-bottom: 6px;
+      display: flex; align-items: center; gap: 10px;
     }
-    .cf-box .sub { font-size:.85rem; color:var(--text-light); margin-bottom:26px; }
-    .btn-full {
-      width:100%; padding:13px; border-radius:50px;
-      font-family:'Lato',sans-serif; font-weight:700; font-size:1rem;
-      border:none; cursor:pointer;
-      background:linear-gradient(135deg,var(--navy),#2563eb);
-      color:#fff; box-shadow:0 6px 20px rgba(26,58,107,.22);
-      transition:transform .2s, box-shadow .2s;
-      display:flex; align-items:center; justify-content:center; gap:10px;
+    .cf-sub {
+      font-size: .85rem; color: var(--text-light);
+      margin-bottom: 22px; padding-bottom: 16px;
+      border-bottom: 1px solid var(--border);
     }
-    .btn-full:hover { transform:translateY(-2px); box-shadow:0 10px 28px rgba(26,58,107,.28); }
-    .success-msg {
-      display:none; text-align:center; padding:18px;
-      background:var(--green-light); border-radius:var(--radius-sm);
-      color:var(--green); font-weight:700; font-size:.92rem; margin-top:16px;
+    .frow2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px; }
+    .cfg   { display: flex; flex-direction: column; gap: 6px; margin-bottom: 14px; }
+    .cfg label { font-size: .8rem; font-weight: 700; color: var(--navy); }
+    .cfg input,
+    .cfg select,
+    .cfg textarea {
+      width: 100%; padding: 11px 14px; border-radius: 10px;
+      border: 2px solid var(--border); background: #fff;
+      font-size: .9rem; color: var(--text); outline: none;
+      transition: border-color .2s, box-shadow .2s;
+      font-family: 'Lato', sans-serif;
+    }
+    .cfg input:focus,
+    .cfg select:focus,
+    .cfg textarea:focus {
+      border-color: var(--navy); box-shadow: 0 0 0 3px rgba(26,58,107,.08);
+    }
+    .cfg select {
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%231a3a6b' stroke-width='2' fill='none'/%3E%3C/svg%3E");
+      background-repeat: no-repeat; background-position: right 14px center;
+    }
+    .cfg textarea { resize: vertical; min-height: 110px; }
+
+    .btn-send {
+      width: 100%; padding: 13px; border-radius: 50px;
+      font-family: 'Lato', sans-serif; font-weight: 700; font-size: 1rem;
+      border: none; cursor: pointer;
+      background: linear-gradient(135deg, var(--navy), #2563eb);
+      color: #fff; box-shadow: 0 6px 20px rgba(26,58,107,.22);
+      transition: transform .2s, box-shadow .2s;
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+      margin-top: 4px;
+    }
+    .btn-send:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(26,58,107,.28); }
+    .btn-send:disabled { opacity: .7; cursor: not-allowed; transform: none; }
+
+    .cf-success {
+      display: none; text-align: center; padding: 16px;
+      background: var(--green-light); border-radius: var(--radius-sm);
+      color: var(--green); font-weight: 700; font-size: .9rem;
+      margin-top: 14px; border: 1px solid rgba(46,158,79,.2);
+    }
+    .cf-error {
+      display: none; text-align: center; padding: 14px;
+      background: #fdecea; border-radius: var(--radius-sm);
+      color: #c62828; font-weight: 700; font-size: .88rem; margin-top: 14px;
     }
 
     /* ===== MAP ===== */
     .map-section { background: var(--bg); }
     .map-wrap {
       border-radius: var(--radius); overflow: hidden;
-      box-shadow: var(--shadow); border: 3px solid #fff;
+      box-shadow: var(--shadow); border: 4px solid #fff;
     }
-    .map-wrap iframe { width:100%; height:400px; border:none; display:block; }
+    .map-wrap iframe { width: 100%; height: 420px; border: none; display: block; }
 
-    /* ===== WA BANNER ===== */
-    .wa-banner {
-      background: linear-gradient(135deg, #128c7e, #25d366);
-      border-radius: var(--radius); padding: 32px 36px;
-      display:flex; align-items:center; gap:24px; margin-top:18px;
-      box-shadow:0 10px 28px rgba(37,211,102,.25);
-      text-decoration:none; color:#fff; transition:transform .2s;
+    @media(max-width: 900px) {
+      .contact-grid { grid-template-columns: 1fr; }
+      .cf-box { padding: 24px; }
     }
-    .wa-banner:hover { transform:translateY(-3px); }
-    .wa-banner i { font-size:2.8rem; flex-shrink:0; }
-    .wa-banner h4 { font-family:'Nunito',sans-serif; font-weight:900; font-size:1.1rem; margin-bottom:5px; }
-    .wa-banner p { font-size:.86rem; opacity:.9; }
-
-    /* ===== HOURS TABLE ===== */
-    .hours-table { width:100%; border-collapse:collapse; margin-top:10px; }
-    .hours-table tr { border-bottom:1px solid var(--border); }
-    .hours-table tr:last-child { border-bottom:none; }
-    .hours-table td { padding:9px 0; font-size:.86rem; }
-    .hours-table td:first-child { font-weight:700; color:var(--navy); }
-    .hours-table td:last-child { color:var(--text-light); text-align:right; }
-
-    @media(max-width:900px){
-      .contact-grid { grid-template-columns:1fr; }
+    @media(max-width: 600px) {
+      .frow2 { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
 
-<!-- NAVBAR -->
+<!-- ===== NAVBAR ===== -->
 <nav class="navbar">
   <a href="index.html" class="nav-brand">
-    <img src="logo.png" alt="Knowledge Park Logo">
+    <img src="logo.png" alt="Knowledge Park Logo"/>
     <div class="nav-brand-text"><strong>Knowledge Park</strong><small>CREATIVE SCHOOL</small></div>
   </a>
   <ul class="nav-links">
@@ -113,7 +180,7 @@
     <li><a href="contact.html" class="active"><i class="fas fa-phone-alt"></i> Contact</a></li>
     <li class="nav-admit"><a href="admission.html"><i class="fas fa-file-alt"></i> Admission</a></li>
   </ul>
-  <div class="hamburger" id="ham" onclick="toggleMob()"><span></span><span></span><span></span></div>
+  <div class="hamburger" onclick="toggleMob()"><span></span><span></span><span></span></div>
 </nav>
 <div class="mobile-nav" id="mobileNav">
   <a href="index.html"><i class="fas fa-home"></i> Home</a>
@@ -124,27 +191,46 @@
 </div>
 
 <main>
-  <!-- PAGE BANNER -->
+
+  <!-- ===== PAGE BANNER ===== -->
   <div class="page-banner">
-    <div class="breadcrumb"><i class="fas fa-home"></i> Home &rsaquo; Contact Us</div>
+    <div class="breadcrumb">
+      <a href="index.html"><i class="fas fa-home"></i> Home</a> &rsaquo; Contact Us
+    </div>
     <h1>Contact Us</h1>
-    <p>We'd love to hear from you. Reach out for admissions, queries, or to schedule a campus visit.</p>
-    <svg class="banner-wave" viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"><path d="M0,60 C360,0 1080,0 1440,60 L1440,60 L0,60 Z" fill="#ffffff"/></svg>
+    <p>We'd love to hear from you. Reach out for admissions, queries or to schedule a campus visit.</p>
   </div>
 
-  <!-- CONTACT SECTION -->
+  <!-- ===== CONTACT SECTION ===== -->
   <section class="section contact-section">
     <div class="container">
+
+      <!-- QUICK ACTION CHIPS -->
+      <div class="quick-chips">
+        <a href="tel:09284504673" class="chip chip-call reveal">
+          <i class="fas fa-phone-alt"></i> Call Now
+        </a>
+        <a href="https://wa.me/919284504673?text=Hello!%20I%20want%20to%20know%20more%20about%20Knowledge%20Park%20Creative%20School." target="_blank" class="chip chip-wa reveal">
+          <i class="fab fa-whatsapp"></i> WhatsApp
+        </a>
+        <a href="https://maps.app.goo.gl/Pv4KhenSPERhErub9" target="_blank" class="chip chip-map reveal">
+          <i class="fas fa-directions"></i> Get Directions
+        </a>
+      </div>
+
       <div class="contact-grid">
-        <!-- INFO -->
+
+        <!-- LEFT: INFO -->
         <div class="info-stack">
+
           <div class="info-card ic-navy reveal">
             <div class="info-ico"><i class="fas fa-map-marker-alt"></i></div>
             <div>
               <h4>Our Address</h4>
-              <p>Bhokar - Kinwat Rd,<br/>beside Gramin Bank,<br/>Bhokar, Maharashtra 431801</p>
-              <a href="https://maps.app.goo.gl/Pv4KhenSPERhErub9" target="_blank" style="color:var(--navy);font-weight:700;margin-top:6px;display:inline-flex;align-items:center;gap:6px;font-size:.82rem;">
-                <i class="fas fa-directions"></i> Get Directions
+              <p>Bhokar – Kinwat Rd, beside Gramin Bank,<br/>Bhokar, Maharashtra 431801</p>
+              <a href="https://maps.app.goo.gl/Pv4KhenSPERhErub9" target="_blank"
+                style="color:var(--navy);font-weight:700;margin-top:8px;display:inline-flex;align-items:center;gap:6px;font-size:.82rem;">
+                <i class="fas fa-directions"></i> Open in Google Maps
               </a>
             </div>
           </div>
@@ -152,16 +238,19 @@
           <div class="info-card ic-green reveal">
             <div class="info-ico"><i class="fas fa-phone-alt"></i></div>
             <div>
-              <h4>Phone</h4>
-              <a href="tel:09284504673">+91 92845 04673</a>
-              <p style="margin-top:4px;">Mon–Sat, 8 AM – 5 PM</p>
+              <h4>Phone / WhatsApp</h4>
+              <a href="tel:09284504673" style="font-weight:700;color:var(--green);">+91 92845 04673</a>
+              <a href="https://wa.me/919284504673" target="_blank" style="margin-top:4px;">
+                <i class="fab fa-whatsapp"></i> Chat on WhatsApp
+              </a>
+              <p style="margin-top:4px;">Monday – Saturday, 8 AM – 5 PM</p>
             </div>
           </div>
 
           <div class="info-card ic-orange reveal">
             <div class="info-ico"><i class="fas fa-clock"></i></div>
             <div>
-              <h4>School Hours</h4>
+              <h4>School &amp; Office Hours</h4>
               <table class="hours-table">
                 <tr><td>Monday – Friday</td><td>7:30 AM – 1:30 PM</td></tr>
                 <tr><td>Saturday</td><td>7:30 AM – 12:00 PM</td></tr>
@@ -175,104 +264,163 @@
             <div class="info-ico"><i class="fas fa-envelope"></i></div>
             <div>
               <h4>Email</h4>
-              <a href="mailto:info@knowledgepark.edu.in">info@knowledgepark.edu.in</a>
-              <p style="margin-top:3px;">We respond within 24 hours</p>
+              <a href="mailto:info@knowledgeparkschool.in">info@knowledgeparkschool.in</a>
+              <p style="margin-top:4px;">We respond within 24 hours</p>
             </div>
           </div>
 
-          <!-- WA BANNER -->
+          <div class="info-card ic-purple reveal">
+            <div class="info-ico"><i class="fas fa-graduation-cap"></i></div>
+            <div>
+              <h4>Admissions 2026–27</h4>
+              <p>Nursery to Class 10 — limited seats. Apply early!</p>
+              <a href="admission.html"
+                style="color:#7b1fa2;font-weight:700;margin-top:6px;display:inline-flex;align-items:center;gap:6px;font-size:.83rem;">
+                <i class="fas fa-file-alt"></i> Apply Online Now
+              </a>
+            </div>
+          </div>
+
+          <!-- WHATSAPP BANNER -->
           <a href="https://wa.me/919284504673?text=Hello!%20I%20want%20to%20know%20more%20about%20Knowledge%20Park%20Creative%20School." target="_blank" class="wa-banner reveal">
-            <i class="fab fa-whatsapp"></i>
+            <div class="wa-icon"><i class="fab fa-whatsapp"></i></div>
             <div>
               <h4>Chat on WhatsApp</h4>
-              <p>Quick responses for admission queries, fee details, and campus visit bookings.</p>
+              <p>Quick replies for admission queries, fee info, and campus visit bookings. Mon–Sat.</p>
             </div>
           </a>
+
         </div>
 
-        <!-- FORM -->
+        <!-- RIGHT: CONTACT FORM -->
         <div class="cf-box reveal-right">
-          <h3><i class="fas fa-paper-plane" style="color:var(--orange)"></i> Send Us a Message</h3>
-          <p class="sub">Fill in the form below and our team will get back to you shortly.</p>
-          <form id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+          <h3>
+            <i class="fas fa-paper-plane" style="color:var(--orange);"></i>
+            Send Us a Message
+          </h3>
+          <p class="cf-sub">Fill in the form and our team will get back to you within 24 hours.</p>
+
+          <form id="contactForm" novalidate>
             <input type="hidden" name="access_key" value="4a6a5640-e2a3-4531-a486-997607383b6c"/>
             <input type="hidden" name="subject" value="New Contact Enquiry – Knowledge Park Creative School"/>
-            <input type="hidden" name="redirect" value="false"/>
-            <div class="form-row">
-              <div class="form-group">
+            <input type="checkbox" name="botcheck" style="display:none"/>
+
+            <div class="frow2">
+              <div class="cfg">
                 <label>Full Name *</label>
                 <input type="text" name="name" placeholder="Your full name" required/>
               </div>
-              <div class="form-group">
+              <div class="cfg">
                 <label>Mobile Number *</label>
-                <input type="tel" name="phone" placeholder="10-digit number" required/>
+                <input type="tel" name="phone" placeholder="+91 XXXXX XXXXX" required/>
               </div>
             </div>
-            <div class="form-group">
-              <label>Email Address</label>
-              <input type="email" name="email" placeholder="your@email.com"/>
+
+            <div class="frow2">
+              <div class="cfg">
+                <label>Email Address</label>
+                <input type="email" name="email" placeholder="your@email.com"/>
+              </div>
+              <div class="cfg">
+                <label>Enquiry Type</label>
+                <select name="enquiry_type">
+                  <option value="">Select type</option>
+                  <option>Admission Enquiry</option>
+                  <option>Fee Details</option>
+                  <option>Campus Visit</option>
+                  <option>Transport Facility</option>
+                  <option>Scholarship Info</option>
+                  <option>General Query</option>
+                </select>
+              </div>
             </div>
-            <div class="form-group">
-              <label>Enquiry Type</label>
-              <select name="enquiry_type">
-                <option value="">Select type</option>
-                <option>Admission Enquiry</option>
-                <option>Fee Details</option>
-                <option>Campus Visit</option>
-                <option>Transport Facility</option>
-                <option>General Query</option>
+
+            <div class="cfg">
+              <label>Child's Class Interested In</label>
+              <select name="class_interest">
+                <option value="">Select class (optional)</option>
+                <option>Nursery / LKG / UKG</option>
+                <option>Class 1 – 5 (Primary)</option>
+                <option>Class 6 – 10 (Secondary)</option>
               </select>
             </div>
-            <div class="form-group">
+
+            <div class="cfg">
               <label>Your Message *</label>
-              <textarea name="message" placeholder="Write your message or question here..." required></textarea>
+              <textarea name="message" placeholder="Write your message or question here…" required></textarea>
             </div>
-            <button type="submit" class="btn-full" id="cfSubmit">
+
+            <button type="submit" class="btn-send" id="cfSubmit">
               <i class="fas fa-paper-plane"></i> Send Message
             </button>
-            <div class="success-msg" id="cfSuccess">
-              <i class="fas fa-check-circle"></i> &nbsp;Message sent! We'll get back to you within 24 hours.
+
+            <div class="cf-success" id="cfSuccess">
+              <i class="fas fa-check-circle"></i>&nbsp; Message sent! We'll get back to you within 24 hours.
+            </div>
+            <div class="cf-error" id="cfError">
+              <i class="fas fa-exclamation-circle"></i>&nbsp; Something went wrong. Please try again or WhatsApp us directly.
             </div>
           </form>
         </div>
+
       </div>
     </div>
   </section>
 
-  <!-- MAP -->
-  <section class="section map-section" style="padding-top:0;">
+  <!-- ===== GOOGLE MAP ===== -->
+  <section class="section map-section">
     <div class="container">
-      <div class="section-label reveal">Find Us</div>
-      <h2 class="section-title reveal">Our Location</h2>
-      <div class="divider reveal"></div>
+      <div class="text-center" style="margin-bottom:36px;">
+        <div class="section-label reveal">Find Us</div>
+        <h2 class="section-title reveal">Our Location</h2>
+        <div class="divider center reveal"></div>
+        <p class="section-sub reveal">Bhokar – Kinwat Road, beside Gramin Bank, Bhokar, Maharashtra 431801.</p>
+      </div>
       <div class="map-wrap reveal">
         <iframe
-          src="https://maps.google.com/maps?q=Bhokar+Kinwat+Rd+beside+gramin+bank+Bhokar+Maharashtra+431801&output=embed"
-          allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+          src="https://maps.google.com/maps?q=Bhokar+Kinwat+Road+beside+Gramin+Bank+Bhokar+Maharashtra+431801&output=embed"
+          allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+          title="Knowledge Park Creative School Location">
         </iframe>
       </div>
-      <div style="margin-top:18px;text-align:center;">
+      <div style="text-align:center;margin-top:20px;">
         <a href="https://maps.app.goo.gl/Pv4KhenSPERhErub9" target="_blank" class="btn btn-navy">
           <i class="fas fa-directions"></i> Open in Google Maps
         </a>
       </div>
     </div>
   </section>
+
+  <!-- ===== CTA ===== -->
+  <section class="cta-section">
+    <h2 class="reveal">Ready to Enrol Your Child?</h2>
+    <p class="reveal">Admissions for 2026–27 are open. Limited seats — apply today!</p>
+    <div class="cta-btns reveal">
+      <a href="admission.html" class="btn btn-orange"><i class="fas fa-file-alt"></i> Apply Now</a>
+      <a href="tel:09284504673" class="btn" style="background:rgba(255,255,255,.15);color:#fff;border:2px solid rgba(255,255,255,.4);">
+        <i class="fas fa-phone-alt"></i> Call Us
+      </a>
+    </div>
+  </section>
+
 </main>
 
-<!-- FLOATING BUTTONS -->
+<!-- ===== FLOATING BUTTONS ===== -->
 <div class="float-btns">
-  <a href="https://wa.me/919284504673?text=Hello!%20I%20have%20an%20enquiry%20about%20Knowledge%20Park%20Creative%20School." target="_blank" class="float-btn wa"><i class="fab fa-whatsapp"></i></a>
-  <a href="tel:09284504673" class="float-btn call"><i class="fas fa-phone-alt"></i></a>
-  <a href="#" class="float-btn totop"><i class="fas fa-chevron-up"></i></a>
+  <a href="https://wa.me/919284504673?text=Hello!%20I%20have%20an%20enquiry%20about%20Knowledge%20Park%20Creative%20School." target="_blank" class="float-btn wa" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+  <a href="tel:09284504673" class="float-btn call" title="Call Us"><i class="fas fa-phone-alt"></i></a>
+  <a href="#" class="float-btn totop" title="Back to Top"><i class="fas fa-chevron-up"></i></a>
 </div>
 
-<!-- FOOTER -->
+<!-- ===== FOOTER ===== -->
 <footer>
   <div class="footer-inner">
     <div class="footer-grid">
       <div class="footer-col">
-        <div class="footer-brand-row"><img src="logo.png" alt="Logo"/><div class="ft">Knowledge Park<small>CREATIVE SCHOOL</small></div></div>
+        <div class="footer-brand-row">
+          <img src="logo.png" alt="Knowledge Park Logo"/>
+          <div class="ft">Knowledge Park<small>CREATIVE SCHOOL</small></div>
+        </div>
         <p>Nurturing young minds with creativity, knowledge and compassion since 2014.</p>
         <div class="footer-socials">
           <a href="#" class="soc"><i class="fab fa-facebook-f"></i></a>
@@ -281,55 +429,135 @@
           <a href="#" class="soc"><i class="fab fa-youtube"></i></a>
         </div>
       </div>
-      <div class="footer-col"><h5>Quick Links</h5><ul>
-        <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
-        <li><a href="about.html"><i class="fas fa-chevron-right"></i> About Us</a></li>
-        <li><a href="gallery.html"><i class="fas fa-chevron-right"></i> Gallery</a></li>
-        <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact</a></li>
-        <li><a href="admission.html"><i class="fas fa-chevron-right"></i> Admission</a></li>
-      </ul></div>
-      <div class="footer-col"><h5>Programs</h5><ul>
-        <li><a href="#"><i class="fas fa-chevron-right"></i> Pre-Primary</a></li>
-        <li><a href="#"><i class="fas fa-chevron-right"></i> Primary (1–5)</a></li>
-        <li><a href="#"><i class="fas fa-chevron-right"></i> Secondary (6–10)</a></li>
-        <li><a href="#"><i class="fas fa-chevron-right"></i> Arts &amp; Crafts</a></li>
-        <li><a href="#"><i class="fas fa-chevron-right"></i> Sports Program</a></li>
-      </ul></div>
-      <div class="footer-col"><h5>Contact Info</h5><ul>
-        <li><a href="https://maps.app.goo.gl/Pv4KhenSPERhErub9" target="_blank"><i class="fas fa-map-marker-alt"></i> Bhokar - Kinwat Rd, beside Gramin Bank, Bhokar, MH 431801</a></li>
-        <li><a href="tel:09284504673"><i class="fas fa-phone"></i> 092845 04673</a></li>
-        <li><a href="https://wa.me/919284504673" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp Us</a></li>
-      </ul></div>
+      <div class="footer-col">
+        <h5>Quick Links</h5>
+        <ul>
+          <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+          <li><a href="about.html"><i class="fas fa-chevron-right"></i> About Us</a></li>
+          <li><a href="gallery.html"><i class="fas fa-chevron-right"></i> Gallery</a></li>
+          <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact</a></li>
+          <li><a href="admission.html"><i class="fas fa-chevron-right"></i> Admission</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Programs</h5>
+        <ul>
+          <li><a href="#"><i class="fas fa-chevron-right"></i> Pre-Primary (Nursery–UKG)</a></li>
+          <li><a href="#"><i class="fas fa-chevron-right"></i> Primary (Class 1–5)</a></li>
+          <li><a href="#"><i class="fas fa-chevron-right"></i> Secondary (Class 6–10)</a></li>
+          <li><a href="#"><i class="fas fa-chevron-right"></i> Arts &amp; Crafts</a></li>
+          <li><a href="#"><i class="fas fa-chevron-right"></i> Sports Program</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Contact Info</h5>
+        <ul>
+          <li>
+            <a href="https://maps.app.goo.gl/Pv4KhenSPERhErub9" target="_blank">
+              <i class="fas fa-map-marker-alt"></i> Bhokar – Kinwat Rd, beside Gramin Bank, Bhokar, MH 431801
+            </a>
+          </li>
+          <li><a href="tel:09284504673"><i class="fas fa-phone"></i> 092845 04673</a></li>
+          <li>
+            <a href="https://wa.me/919284504673" target="_blank">
+              <i class="fab fa-whatsapp"></i> WhatsApp Us
+            </a>
+          </li>
+          <li>
+            <a href="mailto:info@knowledgeparkschool.in">
+              <i class="fas fa-envelope"></i> info@knowledgeparkschool.in
+            </a>
+          </li>
+        </ul>
+      </div>
     </div>
     <div class="footer-bottom">
-      <div class="visitor-row"><i class="fas fa-eye" style="color:var(--orange)"></i> Total Visitors: <span id="visitorCount">0</span></div>
-      <p class="footer-copy">&copy; 2026 <a href="https://kssoftware.co.in" target="_blank" rel="noopener">KS_SOFTWARE</a>. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+      <div class="visitor-row">
+        <i class="fas fa-eye" style="color:var(--orange)"></i>
+        Total Visitors: <strong><span id="visitorCount">…</span></strong>
+      </div>
+      <p class="footer-copy">
+        &copy; 2026 <a href="https://kssoftware.co.in" target="_blank" rel="noopener">KS Software</a>.
+        All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a>
+      </p>
     </div>
   </div>
 </footer>
 
 <script>
-  function toggleMob(){ document.getElementById('mobileNav').classList.toggle('open'); }
-  (function(){ const k='kpcs_vc'; let c=parseInt(localStorage.getItem(k)||'0'); if(!sessionStorage.getItem('kpcs_vs')){ c++; localStorage.setItem(k,c); sessionStorage.setItem('kpcs_vs','1'); } document.getElementById('visitorCount').textContent=c.toLocaleString(); })();
-  const ro=new IntersectionObserver(e=>{ e.forEach(x=>{ if(x.isIntersecting){x.target.classList.add('visible');ro.unobserve(x.target);} }); },{threshold:.1});
-  document.querySelectorAll('.reveal,.reveal-left,.reveal-right').forEach(el=>ro.observe(el));
+/* ===== MOBILE NAV ===== */
+function toggleMob() {
+  document.getElementById('mobileNav').classList.toggle('open');
+}
 
-  document.getElementById('contactForm').addEventListener('submit', async function(e){
-    e.preventDefault();
-    const btn=document.getElementById('cfSubmit');
-    btn.disabled=true; btn.innerHTML='<i class="fas fa-spinner fa-spin"></i> Sending...';
-    try {
-      const res=await fetch('https://api.web3forms.com/submit',{method:'POST',body:new FormData(this)});
-      const d=await res.json();
-      if(d.success){
-        document.getElementById('cfSuccess').style.display='block';
-        this.reset(); btn.innerHTML='<i class="fas fa-check"></i> Sent!';
-      } else { throw new Error(); }
-    } catch {
-      alert('Something went wrong. Please try again.');
-      btn.disabled=false; btn.innerHTML='<i class="fas fa-paper-plane"></i> Send Message';
-    }
+/* ===== VISITOR COUNTER ===== */
+(function () {
+  var KEY = 'kpcs_visitor_total';
+  var SES = 'kpcs_session_counted';
+  var total = parseInt(localStorage.getItem(KEY) || '0', 10);
+  if (!sessionStorage.getItem(SES)) {
+    total++;
+    localStorage.setItem(KEY, total);
+    sessionStorage.setItem(SES, '1');
+  }
+  document.getElementById('visitorCount').textContent = total.toLocaleString('en-IN');
+})();
+
+/* ===== SCROLL REVEAL ===== */
+(function () {
+  var obs = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(function (el) {
+    obs.observe(el);
   });
+})();
+
+/* ===== BACK TO TOP ===== */
+document.querySelector('.totop').addEventListener('click', function (e) {
+  e.preventDefault();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+/* ===== CONTACT FORM SUBMIT ===== */
+document.getElementById('contactForm').addEventListener('submit', async function (e) {
+  e.preventDefault();
+  var btn       = document.getElementById('cfSubmit');
+  var successEl = document.getElementById('cfSuccess');
+  var errorEl   = document.getElementById('cfError');
+
+  successEl.style.display = 'none';
+  errorEl.style.display   = 'none';
+  btn.disabled = true;
+  btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending…';
+
+  try {
+    var res  = await fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      body: new FormData(this)
+    });
+    var data = await res.json();
+
+    if (data.success) {
+      successEl.style.display = 'block';
+      this.reset();
+      btn.innerHTML = '<i class="fas fa-check"></i> Message Sent!';
+      setTimeout(function () {
+        btn.disabled  = false;
+        btn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
+        successEl.style.display = 'none';
+      }, 5000);
+    } else {
+      throw new Error('failed');
+    }
+  } catch (err) {
+    errorEl.style.display = 'block';
+    btn.disabled  = false;
+    btn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
+  }
+});
 </script>
 </body>
 </html>

@@ -4,7 +4,9 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>About Us | Knowledge Park Creative School</title>
-  <link rel="icon" type="image/png" href="logo.png"/>
+  <!-- ✅ FAVICON FIX -->
+  <link rel="icon" type="image/png" href="logoicon.png"/>
+  <link rel="apple-touch-icon" href="logoicon.png"/>
   <link rel="stylesheet" href="style.css"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
   <style>
@@ -12,16 +14,16 @@
     .vm-section { background: #fff; }
     .vm-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 24px; }
     .vm-card {
-      border-radius: var(--radius); padding: 34px 28px;
+      border-radius: var(--radius); padding: 36px 28px;
       text-align: center; position: relative; overflow: hidden;
     }
-    .vm-card.vision { background: linear-gradient(135deg, var(--navy-dark), var(--navy)); color:#fff; }
-    .vm-card.mission { background: linear-gradient(135deg, var(--green), #2e7d32); color:#fff; }
-    .vm-card.values { background: linear-gradient(135deg, #e67e22, var(--orange)); color:#fff; }
+    .vm-card.vision  { background: linear-gradient(135deg, var(--navy-dark), var(--navy)); color:#fff; }
+    .vm-card.mission { background: linear-gradient(135deg, #1a7a3b, var(--green)); color:#fff; }
+    .vm-card.values  { background: linear-gradient(135deg, #e67e22, var(--orange)); color:#fff; }
     .vm-card::before { content:''; position:absolute;top:-30px;right:-30px;width:100px;height:100px;border-radius:50%;background:rgba(255,255,255,.08); }
-    .vm-card i { font-size: 2.2rem; margin-bottom: 18px; opacity: .9; }
+    .vm-card i { font-size: 2.4rem; margin-bottom: 18px; opacity: .95; }
     .vm-card h3 { font-family:'Nunito',sans-serif; font-weight:900; font-size:1.2rem; margin-bottom:12px; }
-    .vm-card p { font-size:.88rem; line-height:1.75; opacity:.87; }
+    .vm-card p  { font-size:.88rem; line-height:1.8; opacity:.88; }
 
     /* ===== STORY ===== */
     .story-section { background: var(--bg); }
@@ -38,10 +40,10 @@
     .story-badge span { font-size:.7rem; letter-spacing:1px; opacity:.85; }
     .timeline { list-style:none; position:relative; padding-left:24px; }
     .timeline::before { content:''; position:absolute; left:7px; top:8px; bottom:8px; width:2px; background:linear-gradient(to bottom,var(--orange),var(--navy)); border-radius:2px; }
-    .timeline li { position:relative; padding-left:22px; margin-bottom:20px; }
+    .timeline li { position:relative; padding-left:22px; margin-bottom:22px; }
     .timeline li::before { content:''; position:absolute; left:-4px; top:6px; width:12px; height:12px; background:var(--orange); border-radius:50%; border:2px solid #fff; box-shadow:0 0 0 2px var(--orange); }
-    .timeline li h4 { font-weight:800; color:var(--navy); font-size:.92rem; }
-    .timeline li p { font-size:.83rem; color:var(--text-light); margin-top:3px; line-height:1.6; }
+    .timeline li h4 { font-weight:800; color:var(--navy); font-size:.94rem; }
+    .timeline li p { font-size:.84rem; color:var(--text-light); margin-top:3px; line-height:1.65; }
 
     /* ===== PRINCIPAL MESSAGE ===== */
     .principal-section { background: linear-gradient(135deg,#edf3ff,#fffaef); }
@@ -56,39 +58,40 @@
       display:flex; align-items:center; justify-content:center;
       font-size:3.5rem; color:#fff; box-shadow:0 12px 32px rgba(26,58,107,.25);
     }
-    .principal-card blockquote { font-size:1rem; line-height:1.85; color:var(--text-light); font-style:italic; margin-bottom:22px; }
-    .principal-card blockquote::before { content:'"'; font-size:3rem; line-height:0; vertical-align:-.5em; color:var(--orange); margin-right:4px; }
-    .principal-name { font-family:'Nunito',sans-serif; font-weight:900; color:var(--navy); font-size:1.1rem; }
+    .principal-card blockquote { font-size:1rem; line-height:1.9; color:var(--text-light); font-style:italic; margin-bottom:22px; }
+    .principal-card blockquote::before { content:'\201C'; font-size:3rem; line-height:0; vertical-align:-.5em; color:var(--orange); margin-right:4px; }
+    .principal-name  { font-family:'Nunito',sans-serif; font-weight:900; color:var(--navy); font-size:1.1rem; }
     .principal-title { font-size:.82rem; color:var(--orange); font-weight:700; letter-spacing:1px; }
 
     /* ===== TEAM ===== */
-    .team-section { background: #fff; }
+    .team-section { background:#fff; }
     .team-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); gap:22px; }
     .team-card { background:var(--bg); border-radius:var(--radius); padding:28px 20px; text-align:center; transition:transform .3s,box-shadow .3s; }
     .team-card:hover { transform:translateY(-6px); box-shadow:var(--shadow); }
-    .team-avatar {
-      width:80px; height:80px; border-radius:50%; margin:0 auto 14px;
-      display:flex; align-items:center; justify-content:center;
-      font-size:2rem; color:#fff;
-    }
+    .team-avatar { width:80px; height:80px; border-radius:50%; margin:0 auto 14px; display:flex; align-items:center; justify-content:center; font-size:2rem; color:#fff; }
     .av1{background:linear-gradient(135deg,var(--navy),#2563eb);}
     .av2{background:linear-gradient(135deg,var(--green),#2e7d32);}
     .av3{background:linear-gradient(135deg,var(--orange),#e67e22);}
     .av4{background:linear-gradient(135deg,var(--blue),#0d47a1);}
     .av5{background:linear-gradient(135deg,#9c27b0,#6a1b9a);}
     .av6{background:linear-gradient(135deg,#e91e63,#880e4f);}
+    .av7{background:linear-gradient(135deg,#00897b,#004d40);}
+    .av8{background:linear-gradient(135deg,#f57c00,#e65100);}
     .team-card h4 { font-family:'Nunito',sans-serif; font-weight:800; color:var(--navy); font-size:.95rem; }
-    .team-card p { font-size:.8rem; color:var(--text-light); margin-top:4px; }
+    .team-card p  { font-size:.8rem; color:var(--text-light); margin-top:4px; }
 
-    /* ===== STATS BANNER ===== */
-    .stats-band {
-      background: linear-gradient(135deg,var(--navy-dark),var(--navy));
-      padding: 56px 4%; text-align:center; color:#fff;
-    }
-    .stats-row { display:flex; gap:32px; justify-content:center; flex-wrap:wrap; max-width:800px; margin:0 auto; }
+    /* ===== STATS BAND ===== */
+    .stats-band { background: linear-gradient(135deg,var(--navy-dark),var(--navy)); padding:60px 4%; text-align:center; color:#fff; }
+    .stats-row { display:flex; gap:32px; justify-content:center; flex-wrap:wrap; max-width:900px; margin:0 auto; }
     .s-card { flex:1; min-width:140px; padding:24px 16px; }
-    .s-card .num { font-family:'Nunito',sans-serif; font-weight:900; font-size:2.6rem; color:var(--orange); display:block; }
+    .s-card .num { font-family:'Nunito',sans-serif; font-weight:900; font-size:2.8rem; color:var(--orange); display:block; }
     .s-card .lbl { font-size:.85rem; color:rgba(255,255,255,.75); font-weight:700; letter-spacing:.5px; }
+
+    /* ===== COLORFUL FEATURE ROWS FOR ABOUT PAGE ===== */
+    .feat-row { display:flex; gap:14px; align-items:flex-start; padding:16px; border-radius:12px; background:var(--bg); transition:transform .2s; margin-bottom:14px; }
+    .feat-row:hover { transform:translateX(6px); }
+    .feat-row h4 { font-weight:700; font-size:.93rem; color:var(--navy); }
+    .feat-row p  { font-size:.83rem; color:var(--text-light); margin-top:3px; }
 
     @media(max-width:900px){
       .vm-grid { grid-template-columns:1fr; }
@@ -99,11 +102,10 @@
   </style>
 </head>
 <body>
-
 <!-- NAVBAR -->
 <nav class="navbar">
   <a href="index.html" class="nav-brand">
-    <img src="logo.png" alt="Knowledge Park Logo">
+    <img src="logo.png" alt="Knowledge Park Logo"/>
     <div class="nav-brand-text"><strong>Knowledge Park</strong><small>CREATIVE SCHOOL</small></div>
   </a>
   <ul class="nav-links">
@@ -113,7 +115,7 @@
     <li><a href="contact.html"><i class="fas fa-phone-alt"></i> Contact</a></li>
     <li class="nav-admit"><a href="admission.html"><i class="fas fa-file-alt"></i> Admission</a></li>
   </ul>
-  <div class="hamburger" id="ham" onclick="toggleMob()"><span></span><span></span><span></span></div>
+  <div class="hamburger" onclick="toggleMob()"><span></span><span></span><span></span></div>
 </nav>
 <div class="mobile-nav" id="mobileNav">
   <a href="index.html"><i class="fas fa-home"></i> Home</a>
@@ -126,16 +128,15 @@
 <main>
   <!-- PAGE BANNER -->
   <div class="page-banner">
-    <div class="breadcrumb"><i class="fas fa-home"></i> Home &rsaquo; About Us</div>
+    <div class="breadcrumb"><a href="index.html"><i class="fas fa-home"></i> Home</a> &rsaquo; About Us</div>
     <h1>About Our School</h1>
-    <p>Learn about our journey, our values, and the dedicated team behind Knowledge Park Creative School.</p>
-    <svg class="banner-wave" viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"><path d="M0,60 C360,0 1080,0 1440,60 L1440,60 L0,60 Z" fill="#f5f8ff"/></svg>
+    <p>Nurturing young minds since 2014 with creativity, knowledge and compassion.</p>
   </div>
 
   <!-- VISION MISSION VALUES -->
   <section class="section vm-section">
     <div class="container">
-      <div class="text-center" style="margin-bottom:44px;">
+      <div class="text-center" style="margin-bottom:48px;">
         <div class="section-label reveal">Our Foundation</div>
         <h2 class="section-title reveal">Vision, Mission &amp; Values</h2>
         <div class="divider center reveal"></div>
@@ -144,17 +145,17 @@
         <div class="vm-card vision reveal">
           <i class="fas fa-eye"></i>
           <h3>Our Vision</h3>
-          <p>To be the leading creative school in Maharashtra, shaping holistic, compassionate and future-ready individuals who contribute positively to society.</p>
+          <p>To be a centre of excellence where every child discovers their unique potential and becomes a confident, compassionate and creative individual ready to lead tomorrow.</p>
         </div>
         <div class="vm-card mission reveal">
-          <i class="fas fa-rocket"></i>
+          <i class="fas fa-bullseye"></i>
           <h3>Our Mission</h3>
-          <p>To provide quality education in a safe, stimulating environment that fosters creativity, critical thinking, strong values and a lifelong love for learning.</p>
+          <p>To provide holistic education that nurtures intellectual curiosity, artistic expression, physical wellness and strong moral values in a safe and inclusive environment.</p>
         </div>
         <div class="vm-card values reveal">
           <i class="fas fa-heart"></i>
           <h3>Our Values</h3>
-          <p>Integrity, Creativity, Compassion, Excellence and Respect — these core values guide everything we do at Knowledge Park Creative School.</p>
+          <p>Integrity, creativity, respect, inclusivity and community. We believe every child deserves to feel seen, valued and inspired every single day.</p>
         </div>
       </div>
     </div>
@@ -163,11 +164,11 @@
   <!-- STATS BAND -->
   <div class="stats-band">
     <div class="stats-row">
-      <div class="s-card reveal"><span class="num">500+</span><span class="lbl">Happy Students</span></div>
-      <div class="s-card reveal"><span class="num">25+</span><span class="lbl">Qualified Teachers</span></div>
-      <div class="s-card reveal"><span class="num">10+</span><span class="lbl">Years of Excellence</span></div>
+      <div class="s-card reveal"><span class="num">500+</span><span class="lbl">Students Enrolled</span></div>
+      <div class="s-card reveal"><span class="num">25+</span><span class="lbl">Dedicated Teachers</span></div>
       <div class="s-card reveal"><span class="num">100%</span><span class="lbl">Board Pass Rate</span></div>
       <div class="s-card reveal"><span class="num">50+</span><span class="lbl">Awards Won</span></div>
+      <div class="s-card reveal"><span class="num">12+</span><span class="lbl">Years of Excellence</span></div>
     </div>
   </div>
 
@@ -183,9 +184,7 @@
           <div class="section-label">Our Story</div>
           <h2 class="section-title">A Decade of Inspiring Young Learners</h2>
           <div class="divider"></div>
-          <p style="color:var(--text-light);line-height:1.85;margin-bottom:28px;">
-            Knowledge Park Creative School was founded in 2014 with a simple but powerful dream — to create a school where every child feels seen, valued and inspired. Starting with just a handful of classrooms and a passionate team, we have grown into one of the most trusted schools in the Nanded district.
-          </p>
+          <p style="color:var(--text-light);line-height:1.85;margin-bottom:28px;">Knowledge Park Creative School was founded in 2014 with a simple but powerful dream — to create a school where every child feels seen, valued and inspired. Starting with just a handful of classrooms and a passionate team, we have grown into one of the most trusted schools in the Nanded district.</p>
           <ul class="timeline">
             <li><h4>2014 – Foundation</h4><p>School established in Bhokar with Pre-Primary and Primary sections.</p></li>
             <li><h4>2016 – Secondary Section Added</h4><p>Expanded to Class 6–10 with qualified secondary teachers.</p></li>
@@ -193,6 +192,7 @@
             <li><h4>2020 – Smart Classrooms</h4><p>Installed smart boards and interactive teaching tools in all classrooms.</p></li>
             <li><h4>2022 – Sports Complex</h4><p>New sports ground and physical education program introduced.</p></li>
             <li><h4>2024 – 10 Years of Excellence</h4><p>Celebrated a decade of nurturing 500+ students with 100% board results.</p></li>
+            <li><h4>2026 – New Academic Year</h4><p>Admissions open for 2026–27. New facilities and expanded programs.</p></li>
           </ul>
         </div>
       </div>
@@ -214,7 +214,44 @@
             At Knowledge Park Creative School, we believe every child is born with unique gifts and infinite potential. Our role is not just to teach — it is to inspire, to guide, and to create an environment where children feel safe to explore, make mistakes, and grow. We combine strong academics with creative expression, physical wellness and moral values to develop citizens the nation can be proud of. I warmly welcome you to our school family.
           </blockquote>
           <div class="principal-name">School Principal</div>
-          <div class="principal-title">KNOWLEDGE PARK CREATIVE SCHOOL</div>
+          <div class="principal-title">KNOWLEDGE PARK CREATIVE SCHOOL, BHOKAR</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT MAKES US SPECIAL -->
+  <section class="section" style="background:#fff;">
+    <div class="container">
+      <div class="text-center" style="margin-bottom:44px;">
+        <div class="section-label reveal">Our Strengths</div>
+        <h2 class="section-title reveal">What Makes Us Special</h2>
+        <div class="divider center reveal"></div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;" class="feat-grid">
+        <div class="feat-row reveal">
+          <div class="feat-ico ico-g"><i class="fas fa-chalkboard-teacher"></i></div>
+          <div><h4>Experienced Faculty</h4><p>Passionate educators dedicated to every child's growth and learning journey.</p></div>
+        </div>
+        <div class="feat-row reveal">
+          <div class="feat-ico ico-b"><i class="fas fa-laptop"></i></div>
+          <div><h4>Smart Classrooms</h4><p>Interactive boards and digital tools to make learning engaging and effective.</p></div>
+        </div>
+        <div class="feat-row reveal">
+          <div class="feat-ico ico-o"><i class="fas fa-heart"></i></div>
+          <div><h4>Safe &amp; Nurturing</h4><p>CCTV surveillance, trained staff and open parent communication channels.</p></div>
+        </div>
+        <div class="feat-row reveal">
+          <div class="feat-ico ico-r"><i class="fas fa-palette"></i></div>
+          <div><h4>Creative Arts</h4><p>Drawing, craft, music and dance programs to unlock artistic talent.</p></div>
+        </div>
+        <div class="feat-row reveal">
+          <div class="feat-ico ico-p"><i class="fas fa-futbol"></i></div>
+          <div><h4>Sports &amp; Yoga</h4><p>Regular sports, yoga and PE sessions for physical health and discipline.</p></div>
+        </div>
+        <div class="feat-row reveal">
+          <div class="feat-ico ico-t"><i class="fas fa-bus"></i></div>
+          <div><h4>Transport Service</h4><p>Reliable school bus covering Bhokar and surrounding villages safely.</p></div>
         </div>
       </div>
     </div>
@@ -231,12 +268,24 @@
       </div>
       <div class="team-grid">
         <div class="team-card reveal"><div class="team-avatar av1"><i class="fas fa-user"></i></div><h4>Class Teacher</h4><p>Primary Section</p></div>
-        <div class="team-card reveal"><div class="team-avatar av2"><i class="fas fa-user"></i></div><h4>Science Teacher</h4><p>Secondary Section</p></div>
-        <div class="team-card reveal"><div class="team-avatar av3"><i class="fas fa-user"></i></div><h4>Mathematics Teacher</h4><p>Class 6–10</p></div>
-        <div class="team-card reveal"><div class="team-avatar av4"><i class="fas fa-user"></i></div><h4>English Teacher</h4><p>All Sections</p></div>
-        <div class="team-card reveal"><div class="team-avatar av5"><i class="fas fa-user"></i></div><h4>Art & Craft Teacher</h4><p>Creative Arts</p></div>
-        <div class="team-card reveal"><div class="team-avatar av6"><i class="fas fa-user"></i></div><h4>Physical Education</h4><p>Sports &amp; Yoga</p></div>
+        <div class="team-card reveal"><div class="team-avatar av2"><i class="fas fa-flask"></i></div><h4>Science Teacher</h4><p>Secondary Section</p></div>
+        <div class="team-card reveal"><div class="team-avatar av3"><i class="fas fa-calculator"></i></div><h4>Mathematics Teacher</h4><p>Class 6–10</p></div>
+        <div class="team-card reveal"><div class="team-avatar av4"><i class="fas fa-book"></i></div><h4>English Teacher</h4><p>All Sections</p></div>
+        <div class="team-card reveal"><div class="team-avatar av5"><i class="fas fa-paint-brush"></i></div><h4>Art &amp; Craft Teacher</h4><p>Creative Arts</p></div>
+        <div class="team-card reveal"><div class="team-avatar av6"><i class="fas fa-running"></i></div><h4>Physical Education</h4><p>Sports &amp; Yoga</p></div>
+        <div class="team-card reveal"><div class="team-avatar av7"><i class="fas fa-laptop-code"></i></div><h4>Computer Teacher</h4><p>Digital Education</p></div>
+        <div class="team-card reveal"><div class="team-avatar av8"><i class="fas fa-music"></i></div><h4>Music Teacher</h4><p>Cultural Programs</p></div>
       </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <h2 class="reveal">Ready to Join Our School Family?</h2>
+    <p class="reveal">Admissions for 2026–27 are open. Give your child the best start in Bhokar.</p>
+    <div class="cta-btns reveal">
+      <a href="admission.html" class="btn btn-orange"><i class="fas fa-file-alt"></i> Apply Now</a>
+      <a href="contact.html" class="btn" style="background:rgba(255,255,255,.15);color:#fff;border:2px solid rgba(255,255,255,.4);"><i class="fas fa-phone-alt"></i> Contact Us</a>
     </div>
   </section>
 </main>
@@ -253,7 +302,10 @@
   <div class="footer-inner">
     <div class="footer-grid">
       <div class="footer-col">
-        <div class="footer-brand-row"><img src="logo.png" alt="Logo"/><div class="ft">Knowledge Park<small>CREATIVE SCHOOL</small></div></div>
+        <div class="footer-brand-row">
+          <img src="logo.png" alt="Knowledge Park Logo"/>
+          <div class="ft">Knowledge Park<small>CREATIVE SCHOOL</small></div>
+        </div>
         <p>Nurturing young minds with creativity, knowledge and compassion since 2014.</p>
         <div class="footer-socials">
           <a href="#" class="soc"><i class="fab fa-facebook-f"></i></a>
@@ -283,16 +335,18 @@
       </ul></div>
     </div>
     <div class="footer-bottom">
-      <div class="visitor-row"><i class="fas fa-eye" style="color:var(--orange)"></i> Total Visitors: <span id="visitorCount">0</span></div>
-      <p class="footer-copy">&copy; 2026 <a href="https://kssoftware.co.in" target="_blank" rel="noopener">KS_SOFTWARE</a>. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+      <div class="visitor-row"><i class="fas fa-eye" style="color:var(--orange)"></i> Total Visitors: <strong><span id="visitorCount">…</span></strong></div>
+      <p class="footer-copy">&copy; 2026 <a href="https://kssoftware.co.in" target="_blank" rel="noopener">KS Software</a>. All rights reserved.</p>
     </div>
   </div>
 </footer>
+
 <script>
-  function toggleMob(){ document.getElementById('mobileNav').classList.toggle('open'); }
-  (function(){ const k='kpcs_vc'; let c=parseInt(localStorage.getItem(k)||'0'); if(!sessionStorage.getItem('kpcs_vs')){ c++; localStorage.setItem(k,c); sessionStorage.setItem('kpcs_vs','1'); } document.getElementById('visitorCount').textContent=c.toLocaleString(); })();
-  const ro=new IntersectionObserver(e=>{ e.forEach(x=>{ if(x.isIntersecting){x.target.classList.add('visible');ro.unobserve(x.target);} }); },{threshold:.1});
-  document.querySelectorAll('.reveal,.reveal-left,.reveal-right').forEach(el=>ro.observe(el));
+function toggleMob(){ document.getElementById('mobileNav').classList.toggle('open'); }
+(function(){ var k='kpcs_visitor_total',s='kpcs_session_counted'; var t=parseInt(localStorage.getItem(k)||'0',10); if(!sessionStorage.getItem(s)){ t++; localStorage.setItem(k,t); sessionStorage.setItem(s,'1'); } document.getElementById('visitorCount').textContent=t.toLocaleString('en-IN'); })();
+document.querySelector('.totop').addEventListener('click',function(e){e.preventDefault();window.scrollTo({top:0,behavior:'smooth'});});
+var obs=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting){x.target.classList.add('visible');obs.unobserve(x.target);}});},{threshold:.1});
+document.querySelectorAll('.reveal,.reveal-left,.reveal-right').forEach(function(el){obs.observe(el);});
 </script>
 </body>
 </html>
