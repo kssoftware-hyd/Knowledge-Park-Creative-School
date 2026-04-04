@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Knowledge Park Creative School | Home</title>
+  <meta name="description" content="Knowledge Park Creative School – A premier creative school in Bhokar, Maharashtra nurturing young minds."/>
+  <link rel="icon" type="image/png" href="logo.png"/>
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+    /* ===== HERO ===== */
+    .hero {
+      min-height: 100vh;
+      padding-top: 68px;
+      background: linear-gradient(135deg, #e6f0ff 0%, #fff9ed 55%, #e8f8ea 100%);
+      display: flex; align-items: center;
+      position: relative; overflow: hidden;
+    }
+    .hero-orb {
+      position: absolute; border-radius: 50%; pointer-events: none; opacity: .14;
+    }
+    .orb1 { width:480px;height:480px;background:var(--navy);top:-160px;right:-100px;animation:orbFloat 8s ease-in-out infinite; }
+    .orb2 { width:300px;height:300px;background:var(--orange);bottom:-60px;left:-80px;animation:orbFloat 10s ease-in-out infinite reverse; }
+    .orb3 { width:180px;height:180px;background:var(--green);top:40%;right:8%;animation:orbFloat 6s ease-in-out infinite 2s; }
+    @keyframes orbFloat { 0%,100%{transform:translateY(0) scale(1);}50%{transform:translateY(-24px) scale(1.04);} }
+
+    .hero-container {
+      max-width: 1160px; margin: 0 auto; padding: 60px 4%;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: center;
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: #fff; border: 2px solid var(--orange);
+      color: var(--orange); font-weight: 800; font-size: .75rem;
+      padding: 6px 16px; border-radius: 50px; margin-bottom: 20px;
+      letter-spacing: 1px; box-shadow: 0 4px 12px rgba(245,166,35,.15);
+      animation: fadeIn .6s ease both;
+    }
+    .hero-badge i { animation: spin 3s linear infinite; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    @keyframes fadeIn { from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);} }
+
+    .hero-title {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 900; font-size: 3.2rem; line-height: 1.13;
+      color: var(--navy); margin-bottom: 18px;
+      animation: fadeIn .75s ease .1s both;
+    }
+    .hero-title .accent { color: var(--green); }
+    .hero-title .accent2 { color: var(--orange); }
+    .hero-desc {
+      font-size: 1.04rem; color: var(--text-light);
+      line-height: 1.8; margin-bottom: 32px;
+      animation: fadeIn .75s ease .2s both;
+    }
+    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; animation: fadeIn .75s ease .3s both; }
+    .hero-img-wrap {
+      display: flex; justify-content: center; align-items: center;
+      animation: fadeIn 1s ease .2s both;
+    }
+    .hero-img-wrap img {
+      width: 88%; max-width: 380px;
+      filter: drop-shadow(0 24px 48px rgba(26,58,107,.2));
+      animation: imgFloat 5s ease-in-out infinite;
+    }
+    @keyframes imgFloat { 0%,100%{transform:translateY(0);}50%{transform:translateY(-16px);} }
+
+    .hero-stats {
+      display: flex; gap: 32px; flex-wrap: wrap;
+      margin-top: 40px; padding-top: 28px;
+      border-top: 1px solid rgba(26,58,107,.1);
+      animation: fadeIn .75s ease .4s both;
+    }
+    .stat .num {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 900; font-size: 2.1rem; color: var(--navy);
+    }
+    .stat .lbl { font-size: .76rem; color: var(--text-light); font-weight: 700; letter-spacing: .5px; }
+
+    /* ===== MARQUEE ===== */
+    .marquee-bar {
+      background: var(--navy); color: #fff;
+      padding: 10px 0; overflow: hidden; position: relative;
+    }
+    .marquee-track {
+      display: flex; gap: 48px; width: max-content;
+      animation: marquee 22s linear infinite;
+      font-size: .85rem; font-weight: 700; letter-spacing: .5px;
+      white-space: nowrap;
+    }
+    .marquee-track span { display: flex; align-items: center; gap: 10px; }
+    .marquee-track i { color: var(--orange); }
+    @keyframes marquee { 0%{transform:translateX(0);}100%{transform:translateX(-50%);} }
+
+    /* ===== ABOUT SNIPPET ===== */
+    .about-snap { background: #fff; }
+    .about-snap-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;
+    }
+    .about-img-box { position: relative; }
+    .about-img-box img {
+      border-radius: var(--radius);
+      background: linear-gradient(135deg,#eef4ff,#fffaef);
+      padding: 32px;
+      box-shadow: var(--shadow);
+    }
+    .about-float-badge {
+      position: absolute; bottom: -16px; right: -16px;
+      background: linear-gradient(135deg, var(--orange), #d4820e);
+      color: #fff; border-radius: var(--radius);
+      padding: 18px 22px; text-align: center;
+      box-shadow: 0 10px 28px rgba(245,166,35,.35);
+    }
+    .about-float-badge strong { font-family:'Nunito',sans-serif; font-weight:900; font-size:1.5rem; display:block; }
+    .about-float-badge span { font-size:.72rem; opacity:.9; font-weight:700; letter-spacing:1px; }
+
+    .feat-list { display: flex; flex-direction: column; gap: 14px; margin: 26px 0 30px; }
+    .feat-row {
+      display: flex; gap: 14px; align-items: flex-start;
+      padding: 14px 16px; border-radius: 12px;
+      background: var(--bg); transition: transform .2s;
+    }
+    .feat-row:hover { transform: translateX(6px); }
+    .feat-ico {
+      width: 42px; height: 42px; border-radius: 10px; flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center; font-size: 1rem;
+    }
+    .ico-g { background: var(--green-light); color: var(--green); }
+    .ico-b { background: var(--blue-light); color: var(--blue); }
+    .ico-o { background: var(--orange-light); color: var(--orange); }
+    .feat-row h4 { font-weight: 700; font-size: .92rem; color: var(--navy); }
+    .feat-row p { font-size: .82rem; color: var(--text-light); margin-top: 3px; }
+
+    /* ===== FEATURE CARDS ===== */
+    .why-section { background: linear-gradient(135deg,#edf3ff,#fffaef); }
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px,1fr));
+      gap: 22px;
+    }
+    .why-card {
+      background: #fff; border-radius: var(--radius);
+      padding: 30px 24px; text-align: center;
+      box-shadow: var(--shadow-sm);
+      border-top: 4px solid transparent;
+      transition: transform .3s, box-shadow .3s;
+    }
+    .why-card:hover { transform: translateY(-8px); box-shadow: var(--shadow); }
+    .why-card.c-navy { border-top-color: var(--navy); }
+    .why-card.c-green { border-top-color: var(--green); }
+    .why-card.c-orange { border-top-color: var(--orange); }
+    .why-card.c-blue { border-top-color: var(--blue); }
+    .why-ico {
+      width: 60px; height: 60px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 16px; font-size: 1.4rem;
+    }
+    .why-card.c-navy .why-ico { background: #e8eef8; color: var(--navy); }
+    .why-card.c-green .why-ico { background: var(--green-light); color: var(--green); }
+    .why-card.c-orange .why-ico { background: var(--orange-light); color: var(--orange); }
+    .why-card.c-blue .why-ico { background: var(--blue-light); color: var(--blue); }
+    .why-card h3 { font-family:'Nunito',sans-serif; font-weight:800; font-size:1rem; color:var(--navy); margin-bottom:8px; }
+    .why-card p { font-size:.84rem; color:var(--text-light); line-height:1.7; }
+
+    /* ===== CTA BANNER ===== */
+    .cta-section {
+      background: linear-gradient(135deg, var(--navy-dark), var(--navy) 60%, #1a5fbf);
+      padding: 72px 4%; text-align: center; color: #fff; position: relative; overflow: hidden;
+    }
+    .cta-section::before {
+      content: '';
+      position: absolute; top: -60px; left: -60px;
+      width: 240px; height: 240px; border-radius: 50%;
+      background: rgba(255,255,255,.05);
+    }
+    .cta-section::after {
+      content: '';
+      position: absolute; bottom: -80px; right: -40px;
+      width: 300px; height: 300px; border-radius: 50%;
+      background: rgba(255,255,255,.04);
+    }
+    .cta-section h2 { font-family:'Nunito',sans-serif; font-weight:900; font-size:2.2rem; margin-bottom:14px; }
+    .cta-section p { color:rgba(255,255,255,.75); font-size:1rem; margin-bottom:30px; max-width:520px; margin-left:auto; margin-right:auto; }
+    .cta-btns { display:flex; gap:14px; justify-content:center; flex-wrap:wrap; }
+
+    @media(max-width:900px){
+      .hero-container { grid-template-columns:1fr; text-align:center; }
+      .hero-actions { justify-content:center; }
+      .hero-stats { justify-content:center; }
+      .hero-img-wrap { order:-1; }
+      .about-snap-grid { grid-template-columns:1fr; }
+      .about-float-badge { right:0; bottom:-14px; }
+      .hero-title { font-size:2.2rem; }
+    }
+    @media(max-width:640px){ .hero-title{font-size:1.9rem;} }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+  <a href="index.html" class="nav-brand">
+    <img src="logo.png" alt="Knowledge Park Logo">
+    <div class="nav-brand-text">
+      <strong>Knowledge Park</strong>
+      <small>CREATIVE SCHOOL</small>
+    </div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html" class="active"><i class="fas fa-home"></i> Home</a></li>
+    <li><a href="about.html"><i class="fas fa-school"></i> About Us</a></li>
+    <li><a href="gallery.html"><i class="fas fa-images"></i> Gallery</a></li>
+    <li><a href="contact.html"><i class="fas fa-phone-alt"></i> Contact</a></li>
+    <li class="nav-admit"><a href="admission.html"><i class="fas fa-file-alt"></i> Admission</a></li>
+  </ul>
+  <div class="hamburger" id="ham" onclick="toggleMob()"><span></span><span></span><span></span></div>
+</nav>
+<div class="mobile-nav" id="mobileNav">
+  <a href="index.html" class="active"><i class="fas fa-home"></i> Home</a>
+  <a href="about.html"><i class="fas fa-school"></i> About Us</a>
+  <a href="gallery.html"><i class="fas fa-images"></i> Gallery</a>
+  <a href="contact.html"><i class="fas fa-phone-alt"></i> Contact</a>
+  <div class="m-admit"><a href="admission.html"><i class="fas fa-file-alt"></i> Admission</a></div>
+</div>
+
+<main>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-orb orb1"></div>
+    <div class="hero-orb orb2"></div>
+    <div class="hero-orb orb3"></div>
+    <div class="hero-container">
+      <div class="hero-text">
+        <div class="hero-badge"><i class="fas fa-star"></i> Admissions Open 2026–27</div>
+        <h1 class="hero-title">Where Young Minds <span class="accent">Grow</span> &amp; <span class="accent2">Shine</span></h1>
+        <p class="hero-desc">At Knowledge Park Creative School, we nurture curiosity, creativity, and character — empowering every child to reach their full potential in a joyful, safe and inspiring environment.</p>
+        <div class="hero-actions">
+          <a href="admission.html" class="btn btn-orange"><i class="fas fa-file-alt"></i> Apply for Admission</a>
+          <a href="about.html" class="btn btn-outline">Learn More</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat"><div class="num">500+</div><div class="lbl">Students</div></div>
+          <div class="stat"><div class="num">25+</div><div class="lbl">Teachers</div></div>
+          <div class="stat"><div class="num">10+</div><div class="lbl">Years</div></div>
+          <div class="stat"><div class="num">100%</div><div class="lbl">Results</div></div>
+        </div>
+      </div>
+      <div class="hero-img-wrap">
+        <img src="logo.png" alt="Knowledge Park Creative School"/>
+      </div>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee-bar">
+    <div class="marquee-track" id="marquee">
+      <span><i class="fas fa-star"></i> Admissions Open 2026–27</span>
+      <span><i class="fas fa-trophy"></i> 100% Board Results</span>
+      <span><i class="fas fa-palette"></i> Creative Arts Program</span>
+      <span><i class="fas fa-futbol"></i> Annual Sports Day – April 2026</span>
+      <span><i class="fas fa-bus"></i> Transport Facility Available</span>
+      <span><i class="fas fa-shield-alt"></i> Safe & Secure Campus</span>
+      <span><i class="fas fa-music"></i> Cultural Events Every Month</span>
+      <span><i class="fas fa-star"></i> Admissions Open 2026–27</span>
+      <span><i class="fas fa-trophy"></i> 100% Board Results</span>
+      <span><i class="fas fa-palette"></i> Creative Arts Program</span>
+      <span><i class="fas fa-futbol"></i> Annual Sports Day – April 2026</span>
+      <span><i class="fas fa-bus"></i> Transport Facility Available</span>
+      <span><i class="fas fa-shield-alt"></i> Safe & Secure Campus</span>
+      <span><i class="fas fa-music"></i> Cultural Events Every Month</span>
+    </div>
+  </div>
+
+  <!-- ABOUT SNAP -->
+  <section class="section about-snap">
+    <div class="container">
+      <div class="about-snap-grid">
+        <div class="about-img-box reveal-left">
+          <img src="logo.png" alt="About Us"/>
+          <div class="about-float-badge">
+            <strong>10+</strong>
+            <span>YEARS OF EXCELLENCE</span>
+          </div>
+        </div>
+        <div class="reveal-right">
+          <div class="section-label">About Our School</div>
+          <h2 class="section-title">Building Bright Futures in Bhokar</h2>
+          <div class="divider"></div>
+          <p style="color:var(--text-light);line-height:1.8;">Knowledge Park Creative School is a premier institution in Bhokar, Maharashtra. We blend academics with arts, sports and values to develop well-rounded individuals ready for tomorrow's world.</p>
+          <div class="feat-list">
+            <div class="feat-row">
+              <div class="feat-ico ico-g"><i class="fas fa-chalkboard-teacher"></i></div>
+              <div><h4>Experienced Faculty</h4><p>Passionate educators dedicated to every child's growth.</p></div>
+            </div>
+            <div class="feat-row">
+              <div class="feat-ico ico-b"><i class="fas fa-laptop"></i></div>
+              <div><h4>Modern Infrastructure</h4><p>Smart classrooms, computer lab, library & science lab.</p></div>
+            </div>
+            <div class="feat-row">
+              <div class="feat-ico ico-o"><i class="fas fa-heart"></i></div>
+              <div><h4>Safe & Nurturing</h4><p>CCTV surveillance, trained staff & open parent communication.</p></div>
+            </div>
+          </div>
+          <a href="about.html" class="btn btn-navy">Read Full Story <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY US -->
+  <section class="section why-section">
+    <div class="container">
+      <div class="text-center" style="margin-bottom:48px;">
+        <div class="section-label reveal">Why Choose Us</div>
+        <h2 class="section-title reveal">Everything Your Child Needs</h2>
+        <div class="divider center reveal"></div>
+        <p class="section-sub reveal">A complete ecosystem that goes beyond textbooks to build creativity, confidence and character.</p>
+      </div>
+      <div class="cards-grid">
+        <div class="why-card c-navy reveal"><div class="why-ico"><i class="fas fa-book-open"></i></div><h3>Academic Excellence</h3><p>Structured curriculum, regular assessments and 100% board results every year.</p></div>
+        <div class="why-card c-green reveal"><div class="why-ico"><i class="fas fa-palette"></i></div><h3>Creative Arts</h3><p>Drawing, craft, music and dance programs that unlock every child's creative potential.</p></div>
+        <div class="why-card c-orange reveal"><div class="why-ico"><i class="fas fa-futbol"></i></div><h3>Sports & Fitness</h3><p>Regular sports, yoga and physical education sessions that build healthy habits.</p></div>
+        <div class="why-card c-blue reveal"><div class="why-ico"><i class="fas fa-shield-alt"></i></div><h3>Safety First</h3><p>24/7 CCTV, trained security staff and strict visitor protocols for a safe campus.</p></div>
+        <div class="why-card c-green reveal"><div class="why-ico"><i class="fas fa-bus"></i></div><h3>Transport Facility</h3><p>Safe and reliable school bus service covering Bhokar and surrounding areas.</p></div>
+        <div class="why-card c-orange reveal"><div class="why-ico"><i class="fas fa-users"></i></div><h3>Parent Connect</h3><p>Regular PTMs, parent workshops and open communication channels with teachers.</p></div>
+        <div class="why-card c-navy reveal"><div class="why-ico"><i class="fas fa-laptop"></i></div><h3>Digital Learning</h3><p>Smart boards, computer education and digital resources from early grades.</p></div>
+        <div class="why-card c-blue reveal"><div class="why-ico"><i class="fas fa-award"></i></div><h3>Awards & Recognition</h3><p>Consistently recognized for academic and extra-curricular excellence at district level.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <h2 class="reveal">Enrol Your Child Today!</h2>
+    <p class="reveal">Give your child the best start in life. Admissions for 2026–27 are now open for Nursery to Class 10.</p>
+    <div class="cta-btns reveal">
+      <a href="admission.html" class="btn btn-orange"><i class="fas fa-file-alt"></i> Apply Now</a>
+      <a href="contact.html" class="btn" style="background:rgba(255,255,255,.15);color:#fff;border:2px solid rgba(255,255,255,.4);"><i class="fas fa-phone-alt"></i> Contact Us</a>
+    </div>
+  </section>
+</main>
+
+<!-- FLOATING BUTTONS -->
+<div class="float-btns">
+  <a href="https://wa.me/919284504673?text=Hello!%20I%20am%20interested%20in%20Knowledge%20Park%20Creative%20School." target="_blank" class="float-btn wa" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+  <a href="tel:09284504673" class="float-btn call" title="Call Us"><i class="fas fa-phone-alt"></i></a>
+  <a href="#" class="float-btn totop" title="Top"><i class="fas fa-chevron-up"></i></a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="footer-brand-row">
+          <img src="logo.png" alt="Logo"/>
+          <div class="ft">Knowledge Park<small>CREATIVE SCHOOL</small></div>
+        </div>
+        <p>Nurturing young minds with creativity, knowledge and compassion. Join us and give your child the very best start in life.</p>
+        <div class="footer-socials">
+          <a href="#" class="soc"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://wa.me/919284504673" target="_blank" class="soc"><i class="fab fa-whatsapp"></i></a>
+          <a href="#" class="soc"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="soc"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Quick Links</h5>
+        <ul>
+          <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+          <li><a href="about.html"><i class="fas fa-chevron-right"></i> About Us</a></li>
+          <li><a href="gallery.html"><i class="fas fa-chevron-right"></i> Gallery</a></li>
+          <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact</a></li>
+          <li><a href="admission.html"><i class="fas fa-chevron-right"></i> Admission</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Programs</h5>
+        <ul>
+          <li><a href="#"><i class="fas fa-chevron-right"></i> Pre-Primary (Nursery–UKG)</a></li>
+          <li><a href="#"><i class="fas fa-chevron-right"></i> Primary (Class 1–5)</a></li>
+          <li><a href="#"><i class="fas fa-chevron-right"></i> Secondary (Class 6–10)</a></li>
+          <li><a href="#"><i class="fas fa-chevron-right"></i> Arts &amp; Crafts</a></li>
+          <li><a href="#"><i class="fas fa-chevron-right"></i> Sports Program</a></li>
+          <li><a href="#"><i class="fas fa-chevron-right"></i> Computer Education</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Contact Info</h5>
+        <ul>
+          <li><a href="https://maps.app.goo.gl/Pv4KhenSPERhErub9" target="_blank"><i class="fas fa-map-marker-alt"></i> Bhokar - Kinwat Rd, beside Gramin Bank, Bhokar, MH 431801</a></li>
+          <li><a href="tel:09284504673"><i class="fas fa-phone"></i> 092845 04673</a></li>
+          <li><a href="https://wa.me/919284504673" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp Us</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="visitor-row"><i class="fas fa-eye" style="color:var(--orange)"></i> Total Visitors: <span id="visitorCount">0</span></div>
+      <p class="footer-copy">&copy; 2026 <a href="https://kssoftware.co.in" target="_blank" rel="noopener">KS_SOFTWARE</a>. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function toggleMob(){ document.getElementById('mobileNav').classList.toggle('open'); }
+  // Visitor counter
+  (function(){
+    const k='kpcs_vc'; let c=parseInt(localStorage.getItem(k)||'0');
+    if(!sessionStorage.getItem('kpcs_vs')){ c++; localStorage.setItem(k,c); sessionStorage.setItem('kpcs_vs','1'); }
+    document.getElementById('visitorCount').textContent=c.toLocaleString();
+  })();
+  // Scroll reveal
+  const revEls=document.querySelectorAll('.reveal,.reveal-left,.reveal-right');
+  const obs=new IntersectionObserver(entries=>{ entries.forEach(e=>{ if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);} }); },{threshold:.1});
+  revEls.forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>

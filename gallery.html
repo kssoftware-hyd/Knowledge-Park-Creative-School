@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gallery | Knowledge Park Creative School</title>
+  <link rel="icon" type="image/png" href="logo.png"/>
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+    /* ===== FILTER TABS ===== */
+    .filter-bar {
+      display: flex; gap: 10px; flex-wrap: wrap; justify-content: center;
+      margin-bottom: 40px;
+    }
+    .filter-btn {
+      padding: 8px 20px; border-radius: 50px;
+      border: 2px solid var(--border);
+      background: #fff; color: var(--text);
+      font-weight: 700; font-size: .84rem; cursor: pointer;
+      transition: all .2s;
+    }
+    .filter-btn:hover, .filter-btn.active {
+      background: var(--navy); color: #fff; border-color: var(--navy);
+    }
+
+    /* ===== MASONRY GALLERY ===== */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+      gap: 18px;
+    }
+    .gal-item {
+      border-radius: var(--radius); overflow: hidden;
+      position: relative; cursor: pointer;
+      box-shadow: var(--shadow-sm);
+      transition: transform .3s, box-shadow .3s;
+    }
+    .gal-item.tall { grid-row: span 2; }
+    .gal-item:hover { transform: scale(1.02); box-shadow: var(--shadow); }
+    .gal-inner {
+      width: 100%; height: 220px;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 10px; color: #fff;
+      font-weight: 700; font-size: .9rem;
+      position: relative;
+    }
+    .gal-item.tall .gal-inner { height: 458px; }
+    .gal-inner i { font-size: 2.8rem; opacity: .85; }
+    .gal-overlay {
+      position: absolute; inset: 0;
+      background: rgba(0,0,0,.4);
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; transition: opacity .3s;
+      font-size: 1.8rem; color: #fff;
+    }
+    .gal-item:hover .gal-overlay { opacity: 1; }
+    .gal-label {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      background: linear-gradient(to top, rgba(0,0,0,.65), transparent);
+      color: #fff; padding: 28px 16px 14px;
+      font-size: .85rem; font-weight: 700;
+    }
+
+    /* colors */
+    .gc1{background:linear-gradient(135deg,#1a3a6b,#2563eb);}
+    .gc2{background:linear-gradient(135deg,#3d9e45,#1b5e20);}
+    .gc3{background:linear-gradient(135deg,#f5a623,#bf360c);}
+    .gc4{background:linear-gradient(135deg,#2196f3,#0d47a1);}
+    .gc5{background:linear-gradient(135deg,#9c27b0,#4a148c);}
+    .gc6{background:linear-gradient(135deg,#e91e63,#880e4f);}
+    .gc7{background:linear-gradient(135deg,#009688,#00251a);}
+    .gc8{background:linear-gradient(135deg,#ff5722,#bf360c);}
+    .gc9{background:linear-gradient(135deg,#607d8b,#263238);}
+
+    /* ===== LIGHTBOX ===== */
+    .lightbox {
+      position: fixed; inset: 0;
+      background: rgba(0,0,0,.88); backdrop-filter: blur(6px);
+      z-index: 3000; display: flex; align-items: center; justify-content: center;
+      opacity: 0; pointer-events: none; transition: opacity .3s;
+    }
+    .lightbox.open { opacity: 1; pointer-events: all; }
+    .lb-inner {
+      background: #fff; border-radius: var(--radius);
+      padding: 32px; max-width: 540px; width: 92%;
+      text-align: center; position: relative;
+      transform: scale(.92); transition: transform .3s;
+    }
+    .lightbox.open .lb-inner { transform: scale(1); }
+    .lb-close {
+      position: absolute; top: 12px; right: 16px;
+      background: none; border: none; font-size: 1.4rem;
+      color: var(--text-light); cursor: pointer;
+    }
+    .lb-preview {
+      width: 100%; height: 240px; border-radius: 12px; margin-bottom: 18px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 4rem; color: #fff;
+    }
+    .lb-inner h3 { font-family:'Nunito',sans-serif; font-weight:900; color:var(--navy); margin-bottom:8px; }
+    .lb-inner p { font-size:.88rem; color:var(--text-light); line-height:1.7; }
+    .lb-nav {
+      display: flex; gap: 10px; justify-content: center; margin-top: 18px;
+    }
+    .lb-nav button {
+      padding: 8px 22px; border-radius: 50px; border: 2px solid var(--navy);
+      color: var(--navy); font-weight: 700; font-size: .84rem;
+      background: none; cursor: pointer; transition: all .2s;
+    }
+    .lb-nav button:hover { background: var(--navy); color: #fff; }
+
+    /* ===== UPLOAD NOTE ===== */
+    .upload-note {
+      background: linear-gradient(135deg,var(--navy-dark),var(--navy));
+      border-radius: var(--radius); padding: 32px 36px; color: #fff;
+      display: flex; align-items: center; gap: 24px; margin-top: 40px;
+      box-shadow: var(--shadow);
+    }
+    .upload-note i { font-size: 2.5rem; color: var(--orange); flex-shrink:0; }
+    .upload-note h4 { font-family:'Nunito',sans-serif; font-weight:800; font-size:1.1rem; margin-bottom:6px; }
+    .upload-note p { font-size:.88rem; color:rgba(255,255,255,.78); line-height:1.7; }
+
+    @media(max-width:640px){
+      .gal-item.tall { grid-row: span 1; }
+      .gal-item.tall .gal-inner { height: 220px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <a href="index.html" class="nav-brand">
+    <img src="logo.png" alt="Knowledge Park Logo">
+    <div class="nav-brand-text"><strong>Knowledge Park</strong><small>CREATIVE SCHOOL</small></div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html"><i class="fas fa-home"></i> Home</a></li>
+    <li><a href="about.html"><i class="fas fa-school"></i> About Us</a></li>
+    <li><a href="gallery.html" class="active"><i class="fas fa-images"></i> Gallery</a></li>
+    <li><a href="contact.html"><i class="fas fa-phone-alt"></i> Contact</a></li>
+    <li class="nav-admit"><a href="admission.html"><i class="fas fa-file-alt"></i> Admission</a></li>
+  </ul>
+  <div class="hamburger" id="ham" onclick="toggleMob()"><span></span><span></span><span></span></div>
+</nav>
+<div class="mobile-nav" id="mobileNav">
+  <a href="index.html"><i class="fas fa-home"></i> Home</a>
+  <a href="about.html"><i class="fas fa-school"></i> About Us</a>
+  <a href="gallery.html" class="active"><i class="fas fa-images"></i> Gallery</a>
+  <a href="contact.html"><i class="fas fa-phone-alt"></i> Contact</a>
+  <div class="m-admit"><a href="admission.html"><i class="fas fa-file-alt"></i> Admission</a></div>
+</div>
+
+<main>
+  <!-- PAGE BANNER -->
+  <div class="page-banner">
+    <div class="breadcrumb"><i class="fas fa-home"></i> Home &rsaquo; Gallery</div>
+    <h1>Our Gallery</h1>
+    <p>A glimpse into the vibrant, joyful and enriching life at Knowledge Park Creative School.</p>
+    <svg class="banner-wave" viewBox="0 0 1440 60" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none"><path d="M0,60 C360,0 1080,0 1440,60 L1440,60 L0,60 Z" fill="#f5f8ff"/></svg>
+  </div>
+
+  <section class="section" style="background:#fff;">
+    <div class="container">
+      <!-- FILTER -->
+      <div class="filter-bar">
+        <button class="filter-btn active" onclick="filter('all',this)">All</button>
+        <button class="filter-btn" onclick="filter('classroom',this)">Classroom</button>
+        <button class="filter-btn" onclick="filter('sports',this)">Sports</button>
+        <button class="filter-btn" onclick="filter('events',this)">Events</button>
+        <button class="filter-btn" onclick="filter('arts',this)">Arts &amp; Crafts</button>
+        <button class="filter-btn" onclick="filter('campus',this)">Campus</button>
+      </div>
+
+      <!-- GALLERY GRID -->
+      <div class="gallery-grid" id="galleryGrid">
+
+        <div class="gal-item tall reveal" data-cat="classroom" onclick="openLB(this)">
+          <div class="gal-inner gc1">
+            <i class="fas fa-chalkboard-teacher"></i>
+            <span>Interactive Learning</span>
+          </div>
+          <div class="gal-overlay"><i class="fas fa-expand-alt"></i></div>
+          <div class="gal-label">Smart Classroom Session</div>
+        </div>
+
+        <div class="gal-item reveal" data-cat="sports" onclick="openLB(this)">
+          <div class="gal-inner gc2">
+            <i class="fas fa-futbol"></i>
+            <span>Sports Day</span>
+          </div>
+          <div class="gal-overlay"><i class="fas fa-expand-alt"></i></div>
+          <div class="gal-label">Annual Sports Day 2025</div>
+        </div>
+
+        <div class="gal-item reveal" data-cat="events" onclick="openLB(this)">
+          <div class="gal-inner gc3">
+            <i class="fas fa-star"></i>
+            <span>Annual Day</span>
+          </div>
+          <div class="gal-overlay"><i class="fas fa-expand-alt"></i></div>
+          <div class="gal-label">Annual Day Celebration</div>
+        </div>
+
+        <div class="gal-item reveal" data-cat="arts" onclick="openLB(this)">
+          <div class="gal-inner gc4">
+            <i class="fas fa-palette"></i>
+            <span>Art Exhibition</span>
+          </div>
+          <div class="gal-overlay"><i class="fas fa-expand-alt"></i></div>
+          <div class="gal-label">Student Art Exhibition</div>
+        </div>
+
+        <div class="gal-item reveal" data-cat="campus" onclick="openLB(this)">
+          <div class="gal-inner gc5">
+            <i class="fas fa-building"></i>
+            <span>School Campus</span>
+          </div>
+          <div class="gal-overlay"><i class="fas fa-expand-alt"></i></div>
+          <div class="gal-label">Our Beautiful Campus</div>
+        </div>
+
+        <div class="gal-item tall reveal" data-cat="events" onclick="openLB(this)">
+          <div class="gal-inner gc6">
+            <i class="fas fa-music"></i>
+            <span>Cultural Program</span>
+          </div>
+          <div class="gal-overlay"><i class="fas fa-expand-alt"></i></div>
+          <div class="gal-label">Cultural Festival 2025</div>
+        </div>
+
+        <div class="gal-item reveal" data-cat="classroom" onclick="openLB(this)">
+          <div class="gal-inner gc7">
+            <i class="fas fa-laptop"></i>
+            <span>Computer Lab</span>
+          </div>
+          <div class="gal-overlay"><i class="fas fa-expand-alt"></i></div>
+          <div class="gal-label">Computer Education Lab</div>
+        </div>
+
+        <div class="gal-item reveal" data-cat="sports" onclick="openLB(this)">
+          <div class="gal-inner gc8">
+            <i class="fas fa-running"></i>
+            <span>Track &amp; Field</span>
+          </div>
+          <div class="gal-overlay"><i class="fas fa-expand-alt"></i></div>
+          <div class="gal-label">Athletics Meet</div>
+        </div>
+
+        <div class="gal-item reveal" data-cat="arts" onclick="openLB(this)">
+          <div class="gal-inner gc9">
+            <i class="fas fa-paint-brush"></i>
+            <span>Drawing Class</span>
+          </div>
+          <div class="gal-overlay"><i class="fas fa-expand-alt"></i></div>
+          <div class="gal-label">Creative Drawing Session</div>
+        </div>
+
+        <div class="gal-item reveal" data-cat="events" onclick="openLB(this)">
+          <div class="gal-inner gc1">
+            <i class="fas fa-graduation-cap"></i>
+            <span>Graduation</span>
+          </div>
+          <div class="gal-overlay"><i class="fas fa-expand-alt"></i></div>
+          <div class="gal-label">Graduation Ceremony 2025</div>
+        </div>
+
+        <div class="gal-item reveal" data-cat="campus" onclick="openLB(this)">
+          <div class="gal-inner gc2">
+            <i class="fas fa-book"></i>
+            <span>School Library</span>
+          </div>
+          <div class="gal-overlay"><i class="fas fa-expand-alt"></i></div>
+          <div class="gal-label">Our School Library</div>
+        </div>
+
+        <div class="gal-item reveal" data-cat="sports" onclick="openLB(this)">
+          <div class="gal-inner gc4">
+            <i class="fas fa-trophy"></i>
+            <span>Prize Distribution</span>
+          </div>
+          <div class="gal-overlay"><i class="fas fa-expand-alt"></i></div>
+          <div class="gal-label">Prize Distribution Ceremony</div>
+        </div>
+
+      </div>
+
+      <!-- UPLOAD NOTE -->
+      <div class="upload-note reveal">
+        <i class="fas fa-camera"></i>
+        <div>
+          <h4>Add Your School Photos</h4>
+          <p>Replace the placeholder tiles above with real school photos by uploading your images to the same folder as the HTML files and updating the image src in the gallery grid. Contact our web team for assistance.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lb" onclick="closeLB(event)">
+  <div class="lb-inner">
+    <button class="lb-close" onclick="closeLB()"><i class="fas fa-times"></i></button>
+    <div class="lb-preview" id="lbPreview"></div>
+    <h3 id="lbTitle">Gallery Item</h3>
+    <p id="lbDesc">Knowledge Park Creative School – capturing memories that last a lifetime.</p>
+    <div class="lb-nav">
+      <button onclick="closeLB()"><i class="fas fa-times"></i> Close</button>
+      <a href="admission.html" class="btn btn-orange" style="padding:8px 22px;font-size:.84rem;"><i class="fas fa-file-alt"></i> Enrol Now</a>
+    </div>
+  </div>
+</div>
+
+<!-- FLOATING BUTTONS -->
+<div class="float-btns">
+  <a href="https://wa.me/919284504673?text=Hello!%20I%20saw%20your%20gallery%20and%20want%20to%20know%20more." target="_blank" class="float-btn wa"><i class="fab fa-whatsapp"></i></a>
+  <a href="tel:09284504673" class="float-btn call"><i class="fas fa-phone-alt"></i></a>
+  <a href="#" class="float-btn totop"><i class="fas fa-chevron-up"></i></a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="footer-brand-row"><img src="logo.png" alt="Logo"/><div class="ft">Knowledge Park<small>CREATIVE SCHOOL</small></div></div>
+        <p>Nurturing young minds with creativity, knowledge and compassion since 2014.</p>
+        <div class="footer-socials">
+          <a href="#" class="soc"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://wa.me/919284504673" target="_blank" class="soc"><i class="fab fa-whatsapp"></i></a>
+          <a href="#" class="soc"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="soc"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+      <div class="footer-col"><h5>Quick Links</h5><ul>
+        <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+        <li><a href="about.html"><i class="fas fa-chevron-right"></i> About Us</a></li>
+        <li><a href="gallery.html"><i class="fas fa-chevron-right"></i> Gallery</a></li>
+        <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact</a></li>
+        <li><a href="admission.html"><i class="fas fa-chevron-right"></i> Admission</a></li>
+      </ul></div>
+      <div class="footer-col"><h5>Gallery Categories</h5><ul>
+        <li><a href="#" onclick="filter('classroom',null)"><i class="fas fa-chevron-right"></i> Classroom</a></li>
+        <li><a href="#" onclick="filter('sports',null)"><i class="fas fa-chevron-right"></i> Sports Events</a></li>
+        <li><a href="#" onclick="filter('events',null)"><i class="fas fa-chevron-right"></i> School Events</a></li>
+        <li><a href="#" onclick="filter('arts',null)"><i class="fas fa-chevron-right"></i> Arts &amp; Crafts</a></li>
+        <li><a href="#" onclick="filter('campus',null)"><i class="fas fa-chevron-right"></i> Campus</a></li>
+      </ul></div>
+      <div class="footer-col"><h5>Contact Info</h5><ul>
+        <li><a href="https://maps.app.goo.gl/Pv4KhenSPERhErub9" target="_blank"><i class="fas fa-map-marker-alt"></i> Bhokar - Kinwat Rd, beside Gramin Bank, Bhokar, MH 431801</a></li>
+        <li><a href="tel:09284504673"><i class="fas fa-phone"></i> 092845 04673</a></li>
+        <li><a href="https://wa.me/919284504673" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp Us</a></li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom">
+      <div class="visitor-row"><i class="fas fa-eye" style="color:var(--orange)"></i> Total Visitors: <span id="visitorCount">0</span></div>
+      <p class="footer-copy">&copy; 2026 <a href="https://kssoftware.co.in" target="_blank" rel="noopener">KS_SOFTWARE</a>. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function toggleMob(){ document.getElementById('mobileNav').classList.toggle('open'); }
+  (function(){ const k='kpcs_vc'; let c=parseInt(localStorage.getItem(k)||'0'); if(!sessionStorage.getItem('kpcs_vs')){ c++; localStorage.setItem(k,c); sessionStorage.setItem('kpcs_vs','1'); } document.getElementById('visitorCount').textContent=c.toLocaleString(); })();
+  const ro=new IntersectionObserver(e=>{ e.forEach(x=>{ if(x.isIntersecting){x.target.classList.add('visible');ro.unobserve(x.target);} }); },{threshold:.08});
+  document.querySelectorAll('.reveal,.reveal-left,.reveal-right').forEach(el=>ro.observe(el));
+
+  function filter(cat, btn){
+    document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+    if(btn) btn.classList.add('active');
+    document.querySelectorAll('.gal-item').forEach(item=>{
+      if(cat==='all'||item.dataset.cat===cat){ item.style.display=''; }
+      else { item.style.display='none'; }
+    });
+  }
+
+  let curItem=null;
+  function openLB(el){
+    curItem=el;
+    const inner=el.querySelector('.gal-inner');
+    const title=el.querySelector('.gal-label').textContent;
+    const preview=document.getElementById('lbPreview');
+    preview.className='lb-preview '+inner.className.replace('gal-inner','');
+    preview.innerHTML=inner.innerHTML;
+    document.getElementById('lbTitle').textContent=title;
+    document.getElementById('lb').classList.add('open');
+    document.body.style.overflow='hidden';
+  }
+  function closeLB(e){
+    if(e && e.target!==document.getElementById('lb') && !e.target.classList.contains('lb-close') && e.target.tagName!=='I') return;
+    if(e && e.currentTarget===document.getElementById('lb') && e.target!==document.getElementById('lb')) return;
+    document.getElementById('lb').classList.remove('open');
+    document.body.style.overflow='';
+  }
+  document.getElementById('lb').addEventListener('click',function(e){ if(e.target===this) closeLB(e); });
+</script>
+</body>
+</html>
