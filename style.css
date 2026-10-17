@@ -340,3 +340,10 @@ footer {
 @media (max-width: 480px) {
   .form-row3 { grid-template-columns: 1fr; }
 }
+
+/* ===== NEW KPCS LOGO (wide logo) ===== */
+.nav-brand img { height: 42px !important; width: auto !important; border-radius: 6px !important; object-fit: contain !important; }
+.nav-brand-text { display: none !important; }
+.footer-brand-row img { height: 52px !important; width: auto !important; border-radius: 6px !important; padding: 0 !important; border: none !important; object-fit: contain !important; }
+.footer-brand-row .ft { display: none !important; }
+.adm-modal-header img { height: 56px !important; width: auto !important; border-radius: 8px !important; padding: 0 !important; }
